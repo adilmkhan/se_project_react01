@@ -1,0 +1,114 @@
+/* .main {
+  min-height: 100vh;
+} */
+
+/* Search Section - Hero area with background */
+.main__search-section {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/search-bg.jpg") center/cover;
+  /* min-height: 100vh; */
+  height: 576px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 20px;
+}
+
+.main__search-container {
+  max-width: 608px;
+  width: 100%;
+  text-align: center;
+}
+
+.main__title {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  color: #ffffff;
+  margin: 0 0 32px;
+}
+
+.main__subtitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  margin: 0 0 80px;
+}
+
+/* Results Section */
+.main__results-section {
+  padding: 80px 20px;
+  background-color: rgba(245, 246, 247, 1);
+  /* min-height: 50vh; */
+}
+
+.main__results-container {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: contents;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .main__title {
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 24px;
+  }
+
+  .main__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 64px;
+  }
+
+  .main__search-section {
+    padding: 60px 16px 16px;
+    min-height: 80vh;
+  }
+
+  .main__results-section {
+    padding: 64px 16px;
+  }
+
+  .main__results-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main__title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .main__search-container {
+    max-width: 100%;
+  }
+
+  .main__results-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* When no results */
+.main__results-container:empty::after {
+  content: "No articles found. Try a different search term.";
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #b6bcbf;
+  padding: 40px 0;
+}

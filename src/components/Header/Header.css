@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 40px 28px;
+  font-family: "Roboto", Arial, sans-serif; /* Add fallback fonts */
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.header__title {
+  font-family: "Roboto Slab", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1b22;
+  margin: 0;
+  text-decoration: none;
+}
+
+.header__home-button {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1b22;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: background-color 0.3s ease;
+}
+
+.header__content-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* .header__home-button:hover {
+  background-color: #f5f6f7;
+}
+
+.header__home-button.active {
+  background-color: #1a1b22;
+  color: #ffffff;
+}
+
+.header__signin-btn {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1b22;
+  background-color: transparent;
+  border: 1px solid #1a1b22;
+  padding: 16px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header__signin-btn:hover {
+  background-color: #1a1b22;
+  color: #ffffff;
+}
+
+.header__signin-btn:focus {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+} */
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 24px 16px 20px;
+  }
+
+  .header__content-container {
+    gap: 16px;
+  }
+
+  .header__signin-btn {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+}
