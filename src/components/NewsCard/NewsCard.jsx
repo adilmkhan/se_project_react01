@@ -17,9 +17,7 @@ function NewsCard({ article }) {
           alt={article.title}
           className="news-card__image"
         />
-        {/* <button className="news-card__save-btn" type="button">
-          <span className="news-card__save-icon"></span>
-        </button> */}
+        <button type="button" className="news-card__save-btn"></button>
       </div>
 
       <div className="news-card__content">
