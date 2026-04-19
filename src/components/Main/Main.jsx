@@ -8,7 +8,7 @@ function Main({ newsData }) {
     <main className="main">
       <section className="main__search-section">
         <div className="main__search-container">
-          <h1 className="main__title">What's going in the world</h1>
+          <h1 className="main__title">What's going in the world?</h1>
           <p className="main__subtitle">
             Find the latest news on any topic and save them in your personal
             account.

@@ -29,7 +29,18 @@
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
   padding-top: 12px;
+  position: relative;
   transition: background-color 0.3s ease;
+}
+
+.header__home-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -28px; /* Adjust this to reach the header bottom */
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .header__content-container {
@@ -56,12 +67,6 @@
 /* .header__home-button:hover {
   background-color: #f5f6f7;
 }
-
-.header__home-button.active {
-  background-color: #1a1b22;
-  color: #ffffff;
-}
-
 
 
 .header__signin-btn:hover {

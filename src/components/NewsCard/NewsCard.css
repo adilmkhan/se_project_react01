@@ -4,6 +4,7 @@
   height: 576px;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 12px;
+  position: relative;
 }
 
 .news-card__image {
@@ -17,6 +18,45 @@
 
 .news-card__content {
   padding: 24px 24px;
+  /* position: relative; */
+}
+
+.news-card__date {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.news-card__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: rgba(26, 27, 34, 1);
+  margin: 0;
+  line-height: 30px;
+  margin-top: 16px;
+}
+
+.news-card__description {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.news-card__source {
+  font-family: Roboto Slab;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: rgba(182, 188, 191, 1);
+  position: absolute;
+  margin: 0;
+  bottom: 16px;
 }
 
 .news-card__link {

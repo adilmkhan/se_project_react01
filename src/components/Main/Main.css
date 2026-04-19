@@ -20,7 +20,7 @@
 .main__search-container {
   max-width: 608px;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .main__title {
@@ -45,23 +45,26 @@
 .main__results-section {
   padding: 80px 104px;
   background-color: rgba(245, 246, 247, 1);
-  /* min-height: 50vh; */
 }
 
 .main__results-section-title {
   margin-top: 0;
   margin-bottom: 64px;
   padding: 0;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
 }
 
 .main__results-container {
-  /* max-width: 1200px; */
   margin: 0 auto;
   list-style: none;
   padding: 0;
   display: contents;
   display: grid;
   grid-template-columns: repeat(auto-fit, 400px);
+  grid-auto-rows: 576px;
   gap: 16px;
   justify-content: center;
 }
