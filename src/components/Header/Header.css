@@ -2,20 +2,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 40px 28px;
+  padding: 32px 104px 28px 104px;
+  margin: 0;
   font-family: "Roboto", Arial, sans-serif; /* Add fallback fonts */
   font-size: 18px;
   font-weight: 500;
-  background-color: transparent;
+  background: transparent;
   position: relative;
   z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .header__title {
   font-family: "Roboto Slab", serif;
   font-size: 20px;
   font-weight: 700;
-  color: #1a1b22;
+  color: rgba(255, 255, 255, 1);
   margin: 0;
   text-decoration: none;
 }
@@ -24,16 +26,31 @@
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: #1a1b22;
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 100px;
+  padding-top: 12px;
   transition: background-color 0.3s ease;
 }
 
 .header__content-container {
   display: flex;
   gap: 20px;
+}
+
+.header__signin-btn {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 1);
+  padding: 12px;
+  /* padding: 12px; */
+  width: 152px;
+  /* height: 24px; */
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* .header__home-button:hover {
@@ -45,18 +62,7 @@
   color: #ffffff;
 }
 
-.header__signin-btn {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: #1a1b22;
-  background-color: transparent;
-  border: 1px solid #1a1b22;
-  padding: 16px 20px;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+
 
 .header__signin-btn:hover {
   background-color: #1a1b22;

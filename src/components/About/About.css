@@ -1,0 +1,43 @@
+.about__image {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 600px;
+  height: 120px;
+  color: rgba(26, 27, 34, 1);
+  margin-left: 56px;
+}
+
+.about__content-title {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.about__content-description {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.about__content-experience {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}

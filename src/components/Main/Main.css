@@ -1,18 +1,20 @@
-/* .main {
-  min-height: 100vh;
-} */
+.main {
+  /* position: absolute; */
+}
 
 /* Search Section - Hero area with background */
 .main__search-section {
   background:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../../assets/search-bg.jpg") center/cover;
-  /* min-height: 100vh; */
-  height: 576px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px 20px;
+  margin-top: -140px;
+  padding-top: 140px;
+  position: relative;
+  z-index: 1;
 }
 
 .main__search-container {
@@ -41,9 +43,15 @@
 
 /* Results Section */
 .main__results-section {
-  padding: 80px 20px;
+  padding: 80px 104px;
   background-color: rgba(245, 246, 247, 1);
   /* min-height: 50vh; */
+}
+
+.main__results-section-title {
+  margin-top: 0;
+  margin-bottom: 64px;
+  padding: 0;
 }
 
 .main__results-container {
@@ -56,6 +64,13 @@
   grid-template-columns: repeat(auto-fit, 400px);
   gap: 16px;
   justify-content: center;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  padding: 80px 216px 80px 104px;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 /* Responsive Design */

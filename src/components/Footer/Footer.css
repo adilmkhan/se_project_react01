@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 104px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.footer__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.footer__linkedin-image {
+  margin: 0 0 0 24px;
+}
+
+.footer__github-image {
+  margin: 0 0 0 40px;
+}
+
+.footer__tripleten-navigation {
+  margin: 0 0 0 40px;
+}
+
+.footer__home-navigation {
+  margin-top: 0;
+  margin-bottom: 0;
+}
