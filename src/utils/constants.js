@@ -1,4 +1,5 @@
 const defaultNewsArticles = [
+  //Per project requirements id and url is not needed
   {
     id: 1,
     title: "Federal Reserve Signals Possible Rate Cuts Later This Year",

@@ -2,6 +2,46 @@
   /* position: absolute; */
 }
 
+.no-results {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-results__image {
+  width: 82.5px;
+  height: 82.5px;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.no-results__title {
+  width: 356px;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  text-align: center;
+  color: rgba(26, 27, 34, 1);
+}
+
+.no-results__description {
+  width: 356px;
+  height: 48px;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(108, 112, 122, 1);
+  text-align: center;
+}
+
 /* Search Section - Hero area with background */
 .main__search-section {
   background:
@@ -67,6 +107,20 @@
   grid-auto-rows: 576px;
   gap: 16px;
   justify-content: center;
+}
+
+.showmore-btn {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(26, 27, 34, 1);
+  background-color: rgba(232, 232, 232, 1);
+  border: none;
+  padding: 20px 98px 20px 98px;
+  border-radius: 80px;
+  margin: 64px auto 0;
+  cursor: pointer;
+  display: block;
 }
 
 .about {

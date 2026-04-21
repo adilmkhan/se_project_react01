@@ -1,6 +1,6 @@
 import "./NewsCard.css";
 
-function NewsCard({ article }) {
+function NewsCard({ article, isLoggedIn }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -17,7 +17,14 @@ function NewsCard({ article }) {
           alt={article.title}
           className="news-card__image"
         />
-        <button type="button" className="news-card__save-btn"></button>
+        {isLoggedIn ? (
+          <button type="button" className="news-card__save-btn"></button>
+        ) : (
+          <button
+            type="button"
+            className="news-card__inactive-save-btn"
+          ></button>
+        )}
       </div>
 
       <div className="news-card__content">
@@ -26,9 +33,7 @@ function NewsCard({ article }) {
             {formatDate(article.publishedAt)}
           </time>
         </div>
-
         <h3 className="news-card__title">{article.title}</h3>
-
         <p className="news-card__description">{article.description}</p>
         <a
           className="news-card__link"

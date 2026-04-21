@@ -2,8 +2,17 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import "./Main.css";
 import About from "../About/About";
+import notFound from "../../assets/not-found_v1.svg";
+import Preloader from "../Preloader/Preloader";
 
-function Main({ newsData, newsResults, onNewsRequest }) {
+function Main({
+  newsData,
+  newsResults,
+  onNewsRequest,
+  isLoggedIn,
+  noNewsResults,
+  newsIsLoading,
+}) {
   return (
     <main className="main">
       <section className="main__search-section">
@@ -16,15 +25,34 @@ function Main({ newsData, newsResults, onNewsRequest }) {
           <SearchForm onNewsRequest={onNewsRequest} />
         </div>
       </section>
-      {newsResults ? (
-        <section className="main__results-section">
-          <h1 className="main__results-section-title">Search Results</h1>
-          <ul className="main__results-container">
-            {newsData.map((article) => {
-              return <NewsCard key={article.id} article={article} />;
-            })}
-          </ul>
-        </section>
+      {newsIsLoading ? (
+        <Preloader />
+      ) : newsResults ? (
+        noNewsResults ? (
+          <div className="no-results">
+            <img src={notFound} alt="notFound" className="no-results__image" />
+            <h1 className="no-results__title">Nothing Found</h1>
+            <p className="no-results__description">
+              Sorry, but nothing matched your search terms.
+            </p>
+          </div>
+        ) : (
+          <section className="main__results-section">
+            <h1 className="main__results-section-title">Search Results</h1>
+            <ul className="main__results-container">
+              {newsData.map((article) => {
+                return (
+                  <NewsCard
+                    key={article.id}
+                    article={article}
+                    isLoggedIn={isLoggedIn}
+                  />
+                );
+              })}
+            </ul>
+            <button className="showmore-btn">Show more</button>
+          </section>
+        )
       ) : (
         ""
       )}

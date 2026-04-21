@@ -6,6 +6,13 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
+.footer__content {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(182, 188, 191, 1);
+}
+
 .footer__navigation {
   display: flex;
   align-items: center;
@@ -21,9 +28,17 @@
 
 .footer__tripleten-navigation {
   margin: 0 0 0 40px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(26, 27, 34, 1);
 }
 
 .footer__home-navigation {
   margin-top: 0;
   margin-bottom: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(26, 27, 34, 1);
 }
