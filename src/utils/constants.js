@@ -102,4 +102,6 @@ const defaultNewsArticles = [
   },
 ];
 
-export { defaultNewsArticles };
+const apiKey = "bef920c1e1084ca98a1a5f48ee72d852";
+
+export { defaultNewsArticles, apiKey };

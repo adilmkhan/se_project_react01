@@ -45,7 +45,7 @@ function Main({
               {newsData.slice(0, visibleCount).map((article) => {
                 return (
                   <NewsCard
-                    key={article.id}
+                    key={`${article.id}-${article.source.name}`}
                     article={article}
                     isLoggedIn={isLoggedIn}
                   />

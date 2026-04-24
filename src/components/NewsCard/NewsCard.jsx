@@ -35,14 +35,7 @@ function NewsCard({ article, isLoggedIn }) {
         </div>
         <h3 className="news-card__title">{article.title}</h3>
         <p className="news-card__description">{article.description}</p>
-        <a
-          className="news-card__link"
-          href={article.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p className="news-card__source">{article.source.name}</p>
-        </a>
+        <p className="news-card__source">{article.source.name}</p>
       </div>
     </li>
   );

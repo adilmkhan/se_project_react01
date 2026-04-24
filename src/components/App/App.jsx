@@ -10,17 +10,17 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import { defaultNewsArticles } from "../../utils/constants";
+import { defaultNewsArticles, apiKey } from "../../utils/constants";
 import { getNews } from "../../utils/newsApi";
 
 function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
-  const [newsData, setNewsData] = useState(defaultNewsArticles);
+  const [newsData, setNewsData] = useState([]);
 
   const [visibleCount, setVisibleCount] = useState(3);
 
   //Default = false
-  const [newsResults, setNewsResults] = useState(true);
+  const [newsResults, setNewsResults] = useState(false);
 
   //Deafult = false
   const [noNewsResults, setNoNewsResults] = useState(false);
@@ -43,11 +43,17 @@ function App() {
   const location = useLocation();
 
   const handleNewsRequest = (searchFormData) => {
+    const currentDate = new Date();
+    const to = currentDate.toISOString().split("T")[0];
+    const backDate = new Date(currentDate);
+    backDate.setDate(currentDate.getDate() - 7);
+    const from = backDate.toISOString().split("T")[0];
+
     setVisibleCount(3);
     setNewsIsLoading(true);
     setNewsResults(false);
     setNoNewsResults(false);
-    getNews({ news: searchFormData.news }, APIkey)
+    getNews({ q: searchFormData.news, pageSize: 100 }, apiKey, from, to)
       .then((data) => {
         if (data.totalResults === 0) {
           setNewsResults(true);

@@ -1,5 +1,7 @@
-export const getNews = ({ news }, APIkey) => {
-  return fetch().then((res) => {
+export const getNews = ({ q, pageSize }, apiKey, from, to) => {
+  return fetch(
+    `https://newsapi.org/v2/everything?q=${q}&from=${from}&to=${to}&${[pageSize]}&apiKey=${apiKey}`,
+  ).then((res) => {
     if (res.ok) {
       return res.json();
     }

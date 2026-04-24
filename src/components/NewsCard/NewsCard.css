@@ -102,6 +102,10 @@
   margin: 0;
   line-height: 30px;
   margin-top: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .news-card__description {
