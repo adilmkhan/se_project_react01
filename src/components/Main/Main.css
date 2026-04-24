@@ -114,13 +114,18 @@
   font-size: 18px;
   font-weight: 500;
   color: rgba(26, 27, 34, 1);
-  background-color: rgba(232, 232, 232, 1);
+  background-color: rgba(255, 255, 255, 1);
   border: none;
   padding: 20px 98px 20px 98px;
   border-radius: 80px;
   margin: 64px auto 0;
   cursor: pointer;
   display: block;
+  transition: background-color 0.5s;
+}
+
+.showmore-btn:hover {
+  background-color: rgba(232, 232, 232, 1);
 }
 
 .about {

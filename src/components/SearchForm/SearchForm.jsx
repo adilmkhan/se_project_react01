@@ -3,7 +3,7 @@ import "./SearchForm.css";
 function SearchForm({ onNewsRequest }) {
   function handleSubmit(evt) {
     evt.preventDefault();
-    const newsValue = evt.target.news.value;
+    const newsValue = { news: evt.target.news.value };
     onNewsRequest(newsValue);
   }
 

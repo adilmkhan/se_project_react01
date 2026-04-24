@@ -17,6 +17,8 @@ function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
   const [newsData, setNewsData] = useState(defaultNewsArticles);
 
+  const [visibleCount, setVisibleCount] = useState(3);
+
   //Default = false
   const [newsResults, setNewsResults] = useState(true);
 
@@ -41,17 +43,17 @@ function App() {
   const location = useLocation();
 
   const handleNewsRequest = (searchFormData) => {
+    setVisibleCount(3);
     setNewsIsLoading(true);
     setNewsResults(false);
     setNoNewsResults(false);
-    getNews({ news: searchFormData.value }, APIkey)
+    getNews({ news: searchFormData.news }, APIkey)
       .then((data) => {
         if (data.totalResults === 0) {
           setNewsResults(true);
           setNoNewsResults(true);
         } else {
-          const firstThreeArticles = data.articles.slice(0, 3);
-          setNewsData(firstThreeArticles);
+          setNewsData(data.articles);
           setNewsResults(true);
         }
       })
@@ -65,20 +67,11 @@ function App() {
       });
   };
 
-  //TODO--Possible API call for showmore...
-  const handleShowmoreNews = () => {
-    getNews({ news: searchFormData.value }, APIkey)
-      .then((data) => {
-        if (data.totalResults === 0) {
-          return;
-        } else {
-          const firstThreeArticles = data.articles.slice(0, 3);
-          setNewsData(firstThreeArticles);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  //TODO--API call for showmore...
+  const handleShowMoreNews = () => {
+    setVisibleCount((prev) => {
+      return prev + 3;
+    });
   };
 
   // useEffect(() => {}, []);
@@ -99,6 +92,8 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   noNewsResults={noNewsResults}
                   newsIsLoading={newsIsLoading}
+                  handleShowMoreNews={handleShowMoreNews}
+                  visibleCount={visibleCount}
                 />
               }
             />

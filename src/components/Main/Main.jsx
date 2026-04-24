@@ -12,6 +12,8 @@ function Main({
   isLoggedIn,
   noNewsResults,
   newsIsLoading,
+  handleShowMoreNews,
+  visibleCount,
 }) {
   return (
     <main className="main">
@@ -40,7 +42,7 @@ function Main({
           <section className="main__results-section">
             <h1 className="main__results-section-title">Search Results</h1>
             <ul className="main__results-container">
-              {newsData.map((article) => {
+              {newsData.slice(0, visibleCount).map((article) => {
                 return (
                   <NewsCard
                     key={article.id}
@@ -50,12 +52,18 @@ function Main({
                 );
               })}
             </ul>
-            <button className="showmore-btn">Show more</button>
+            {newsData.length > visibleCount ? (
+              <button
+                type="button"
+                onClick={handleShowMoreNews}
+                className="showmore-btn"
+              >
+                Show more
+              </button>
+            ) : null}
           </section>
         )
-      ) : (
-        ""
-      )}
+      ) : null}
       <section className="about">
         <About />
       </section>
