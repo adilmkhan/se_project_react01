@@ -10,8 +10,10 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import { defaultNewsArticles, apiKey } from "../../utils/constants";
+import { apiKey } from "../../utils/constants";
 import { getNews } from "../../utils/newsApi";
+import Saved from "../../components/Saved/Saved";
+import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
@@ -30,12 +32,12 @@ function App() {
 
   const [activeModal, setActiveModal] = useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   //TODO-Changes needed to data-structure
   const [currentUser, setCurrentUser] = useState({
     _id: "",
-    name: "",
+    name: "John", //Testing
     avatar: "",
   });
 
@@ -86,7 +88,7 @@ function App() {
     <>
       <div className="page">
         <div className="page__content">
-          <Header />
+          <Header isLoggedIn={isLoggedIn} currentUser={currentUser} />
           <Routes>
             <Route
               path="/"
@@ -101,6 +103,14 @@ function App() {
                   handleShowMoreNews={handleShowMoreNews}
                   visibleCount={visibleCount}
                 />
+              }
+            />
+            <Route
+              path="/saved-articles"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Saved />
+                </ProtectedRoute>
               }
             />
           </Routes>

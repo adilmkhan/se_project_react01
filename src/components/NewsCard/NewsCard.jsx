@@ -1,4 +1,5 @@
 import "./NewsCard.css";
+import defaultImage from "../../assets/placeholder_image.avif";
 
 function NewsCard({ article, isLoggedIn }) {
   const formatDate = (dateString) => {
@@ -13,7 +14,7 @@ function NewsCard({ article, isLoggedIn }) {
     <li className="news-card">
       <div className="news-card__image-container">
         <img
-          src={article.urlToImage || "/images/placeholder-image.jpg"}
+          src={article.urlToImage || defaultImage}
           alt={article.title}
           className="news-card__image"
         />

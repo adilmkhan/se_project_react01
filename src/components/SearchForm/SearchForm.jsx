@@ -20,7 +20,7 @@ function SearchForm({ onNewsRequest }) {
           minLength="2"
           maxLength="30"
         />
-        <button type="button" className="search-form__button">
+        <button type="submit" className="search-form__button">
           Search
         </button>
       </div>
