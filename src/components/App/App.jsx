@@ -12,12 +12,16 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { apiKey } from "../../utils/constants";
 import { getNews } from "../../utils/newsApi";
+import { addArticle } from "../../utils/api";
 import Saved from "../../components/Saved/Saved";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
+import { getToken } from "../../utils/token";
 
 function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
   const [newsData, setNewsData] = useState([]);
+
+  const [savedArticles, setSavedArticles] = useState([]);
 
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -43,6 +47,8 @@ function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const baseUrl = "http://localhost:3001";
 
   const handleNewsRequest = (searchFormData) => {
     const currentDate = new Date();
@@ -82,6 +88,27 @@ function App() {
     });
   };
 
+  const handleAddArticle = (cardData) => {
+    const jwt = getToken();
+    addArticle(
+      {
+        news: cardData.title,
+        description: cardData.description,
+        urlToImage: cardData.urlToImage,
+        publishedAt: cardData.publishedAt,
+        source: cardData.source.name,
+      },
+      baseUrl,
+      jwt,
+    )
+      .then((res) => {
+        setSavedArticles((prev) => [res.data, ...prev]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   // useEffect(() => {}, []);
 
   return (
@@ -102,6 +129,8 @@ function App() {
                   newsIsLoading={newsIsLoading}
                   handleShowMoreNews={handleShowMoreNews}
                   visibleCount={visibleCount}
+                  handleAddArticle={handleAddArticle}
+                  savedArticles={savedArticles}
                 />
               }
             />

@@ -31,6 +31,21 @@
   cursor: pointer;
 }
 
+.news-card__saved-btn-saved {
+  background-image: url(../../assets/button_saved.svg);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  margin: 0;
+  padding: 0;
+  transition: background-image 0.5s linear;
+  cursor: pointer;
+}
+
 .news-card__save-btn:hover {
   background-image: url(../../assets/save-btn-hover.svg);
 }

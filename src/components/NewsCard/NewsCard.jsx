@@ -1,7 +1,7 @@
 import "./NewsCard.css";
 import defaultImage from "../../assets/placeholder_image.avif";
 
-function NewsCard({ article, isLoggedIn }) {
+function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -10,6 +10,18 @@ function NewsCard({ article, isLoggedIn }) {
       day: "numeric",
     });
   };
+
+  function handleSubmit(evt) {
+    // evt.preventDefault();
+    const newsValues = {
+      news: article.title,
+      description: article.description,
+      urlToImage: article.urlToImage,
+      publishedAt: article.publishedAt,
+      source: article.source.name,
+    };
+    onNewsAdd(newsValues);
+  }
   return (
     <li className="news-card">
       <div className="news-card__image-container">
@@ -19,7 +31,11 @@ function NewsCard({ article, isLoggedIn }) {
           className="news-card__image"
         />
         {isLoggedIn ? (
-          <button type="button" className="news-card__save-btn"></button>
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            className={`news-card__save-btn ${isSaved ? "news-card__saved-btn-saved" : ""}`}
+          ></button>
         ) : (
           <button
             type="button"
