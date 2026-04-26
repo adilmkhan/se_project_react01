@@ -92,7 +92,7 @@ function App() {
     const jwt = getToken();
     addArticle(
       {
-        news: cardData.title,
+        title: cardData.title,
         description: cardData.description,
         urlToImage: cardData.urlToImage,
         publishedAt: cardData.publishedAt,
