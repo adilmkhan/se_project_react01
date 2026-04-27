@@ -14,7 +14,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
   function handleSubmit(evt) {
     // evt.preventDefault();
     const newsValues = {
-      news: article.title,
+      title: article.title,
       description: article.description,
       urlToImage: article.urlToImage,
       publishedAt: article.publishedAt,
