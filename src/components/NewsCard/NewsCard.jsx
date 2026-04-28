@@ -19,6 +19,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
       urlToImage: article.urlToImage,
       publishedAt: article.publishedAt,
       source: article.source.name,
+      keyword: article.keyword,
     };
     onNewsAdd(newsValues);
   }

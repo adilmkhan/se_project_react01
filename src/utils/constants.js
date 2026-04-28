@@ -10,6 +10,7 @@ const defaultNewsArticles = [
     url: "https://www.reuters.com/markets/",
     urlToImage:
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Fed",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const defaultNewsArticles = [
     url: "https://techcrunch.com/category/artificial-intelligence/",
     urlToImage:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+    keyword: "AI",
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ const defaultNewsArticles = [
     url: "https://www.nasa.gov/artemis/",
     urlToImage:
       "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Artemis",
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ const defaultNewsArticles = [
     url: "https://www.bloomberg.com/markets",
     urlToImage:
       "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Markets",
   },
   {
     id: 5,
@@ -55,6 +59,7 @@ const defaultNewsArticles = [
     url: "https://www.theverge.com/security",
     urlToImage:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Cybersecurity",
   },
   {
     id: 6,
@@ -66,6 +71,7 @@ const defaultNewsArticles = [
     url: "https://www.bbc.com/news/business",
     urlToImage:
       "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Electric Vehicles",
   },
   {
     id: 7,
@@ -77,6 +83,7 @@ const defaultNewsArticles = [
     url: "https://www.scientificamerican.com/energy/",
     urlToImage:
       "https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Renewable",
   },
   {
     id: 8,
@@ -88,6 +95,7 @@ const defaultNewsArticles = [
     url: "https://www.cnbc.com/transportation/",
     urlToImage:
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Travel",
   },
   {
     id: 9,
@@ -99,6 +107,7 @@ const defaultNewsArticles = [
     url: "https://www.wired.com/category/business/",
     urlToImage:
       "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80",
+    keyword: "Data Centers",
   },
 ];
 

@@ -10,18 +10,20 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import { apiKey } from "../../utils/constants";
+import { apiKey, defaultNewsArticles } from "../../utils/constants";
 import { getNews } from "../../utils/newsApi";
 import { addArticle } from "../../utils/api";
 import Saved from "../../components/Saved/Saved";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import { getToken } from "../../utils/token";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
   const [newsData, setNewsData] = useState([]);
 
-  const [savedArticles, setSavedArticles] = useState([]);
+  //TODO -- default should be an empty array
+  const [savedArticles, setSavedArticles] = useState(defaultNewsArticles);
 
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -41,7 +43,7 @@ function App() {
   //TODO-Changes needed to data-structure
   const [currentUser, setCurrentUser] = useState({
     _id: "",
-    name: "John", //Testing
+    name: "Elise", //Testing
     avatar: "",
   });
 
@@ -62,12 +64,17 @@ function App() {
     setNewsResults(false);
     setNoNewsResults(false);
     getNews({ q: searchFormData.news, pageSize: 100 }, apiKey, from, to)
-      .then((data) => {
-        if (data.totalResults === 0) {
+      .then((res) => {
+        if (res.totalResults === 0) {
           setNewsResults(true);
           setNoNewsResults(true);
         } else {
-          setNewsData(data.articles);
+          setNewsData(
+            res.articles.map((item) => {
+              return { ...item, keyword: searchFormData.news };
+            }),
+          );
+          console.log(newsData);
           setNewsResults(true);
         }
       })
@@ -97,6 +104,7 @@ function App() {
         urlToImage: cardData.urlToImage,
         publishedAt: cardData.publishedAt,
         source: cardData.source.name,
+        keyword: cardData.keyword,
       },
       baseUrl,
       jwt,
@@ -112,41 +120,43 @@ function App() {
   // useEffect(() => {}, []);
 
   return (
-    <>
-      <div className="page">
-        <div className="page__content">
-          <Header isLoggedIn={isLoggedIn} currentUser={currentUser} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Main
-                  newsData={newsData}
-                  newsResults={newsResults}
-                  onNewsRequest={handleNewsRequest}
-                  isLoggedIn={isLoggedIn}
-                  noNewsResults={noNewsResults}
-                  newsIsLoading={newsIsLoading}
-                  handleShowMoreNews={handleShowMoreNews}
-                  visibleCount={visibleCount}
-                  handleAddArticle={handleAddArticle}
-                  savedArticles={savedArticles}
-                />
-              }
-            />
-            <Route
-              path="/saved-articles"
-              element={
-                <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <Saved />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-          <Footer />
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <>
+        <div className="page">
+          <div className="page__content">
+            <Header isLoggedIn={isLoggedIn} currentUser={currentUser} />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Main
+                    newsData={newsData}
+                    newsResults={newsResults}
+                    onNewsRequest={handleNewsRequest}
+                    isLoggedIn={isLoggedIn}
+                    noNewsResults={noNewsResults}
+                    newsIsLoading={newsIsLoading}
+                    handleShowMoreNews={handleShowMoreNews}
+                    visibleCount={visibleCount}
+                    handleAddArticle={handleAddArticle}
+                    savedArticles={savedArticles}
+                  />
+                }
+              />
+              <Route
+                path="/saved-articles"
+                element={
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <Saved savedArticles={savedArticles} />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+            <Footer />
+          </div>
         </div>
-      </div>
-    </>
+      </>
+    </CurrentUserContext.Provider>
   );
 }
 
