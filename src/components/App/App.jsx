@@ -17,6 +17,8 @@ import Saved from "../../components/Saved/Saved";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import { getToken } from "../../utils/token";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
@@ -38,7 +40,8 @@ function App() {
 
   const [activeModal, setActiveModal] = useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  //TODO -- Deafult is false
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //TODO-Changes needed to data-structure
   const [currentUser, setCurrentUser] = useState({
@@ -51,6 +54,18 @@ function App() {
   const location = useLocation();
 
   const baseUrl = "http://localhost:3001";
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+  const handleRegisterClick = () => {
+    setActiveModal("signup");
+  };
+
+  const handleLoginClick = () => {
+    setActiveModal("signin");
+  };
 
   const handleNewsRequest = (searchFormData) => {
     const currentDate = new Date();
@@ -117,6 +132,10 @@ function App() {
       });
   };
 
+  const handleRegister = () => {};
+
+  const handleLogin = () => {};
+
   // useEffect(() => {}, []);
 
   return (
@@ -124,7 +143,11 @@ function App() {
       <>
         <div className="page">
           <div className="page__content">
-            <Header isLoggedIn={isLoggedIn} currentUser={currentUser} />
+            <Header
+              handleLoginClick={handleLoginClick}
+              isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
+            />
             <Routes>
               <Route
                 path="/"
@@ -154,6 +177,16 @@ function App() {
             </Routes>
             <Footer />
           </div>
+          <RegisterModal
+            isOpen={activeModal === "signup"}
+            handleCloseClick={closeActiveModal}
+            onSignup={handleRegister}
+          />
+          <LoginModal
+            isOpen={activeModal === "signin"}
+            handleCloseClick={closeActiveModal}
+            onSignin={handleLogin}
+          />
         </div>
       </>
     </CurrentUserContext.Provider>

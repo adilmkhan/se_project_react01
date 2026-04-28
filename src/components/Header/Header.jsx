@@ -3,7 +3,7 @@ import "./Header.css";
 import signout from "../../assets/logout_home.svg";
 import signoutSaved from "../../assets/logout.svg";
 
-function Header({ isLoggedIn, currentUser }) {
+function Header({ isLoggedIn, currentUser, handleLoginClick }) {
   const location = useLocation();
   const isOnSavedNews = location.pathname === "/saved-articles";
   return (
@@ -49,7 +49,11 @@ function Header({ isLoggedIn, currentUser }) {
             </button>
           </>
         ) : (
-          <button type="button" className="header__signin-btn">
+          <button
+            onClick={handleLoginClick}
+            type="button"
+            className="header__signin-btn"
+          >
             Sign In
           </button>
         )}
