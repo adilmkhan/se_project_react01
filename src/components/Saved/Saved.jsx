@@ -1,5 +1,6 @@
 import "./Saved.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import { useContext } from "react";
 
 function Saved({ savedArticles }) {
@@ -14,11 +15,20 @@ function Saved({ savedArticles }) {
           articles
         </h1>
         <p className="saved__info-keywords">
-          By keywords: {savedArticles[0].keyword}, {savedArticles[1].keyword},
-          and {savedArticles.length - 2} others
+          By keywords:{" "}
+          <span className="saved__info-karticles">
+            {savedArticles[0].keyword}, {savedArticles[1].keyword}, and{" "}
+            {savedArticles.length - 2} other
+          </span>
         </p>
       </section>
-      <section className="saved__results"></section>
+      <section className="main__results-section">
+        <ul className="main__results-container">
+          {savedArticles.map((article) => {
+            return <SavedNewsCard key={article._id} article={article} />;
+          })}
+        </ul>
+      </section>
     </div>
   );
 }
