@@ -4,11 +4,19 @@ function ModalWithForm({
   buttonText,
   title,
   name,
+  routing,
+  routingHandler,
   isOpen,
   handleCloseClick,
   children,
   onSubmit,
 }) {
+  function routingCloseHanlder() {
+    handleCloseClick();
+    setTimeout(() => {
+      routingHandler();
+    }, 490);
+  }
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__container">
@@ -24,6 +32,16 @@ function ModalWithForm({
           <button type="submit" className="modal__button modal__button-save">
             {buttonText}
           </button>
+          <p className="modal__or">
+            or{" "}
+            <button
+              onClick={routingCloseHanlder}
+              type="button"
+              className="modal__or-signup"
+            >
+              {routing}
+            </button>
+          </p>
         </form>
       </div>
     </div>

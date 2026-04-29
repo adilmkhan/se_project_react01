@@ -1,7 +1,12 @@
 import { useForm } from "../../hooks/useForm.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
-const LoginModal = ({ isOpen, onSignin, handleCloseClick }) => {
+const LoginModal = ({
+  isOpen,
+  onSignin,
+  handleCloseClick,
+  handleRegisterClick,
+}) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -19,6 +24,8 @@ const LoginModal = ({ isOpen, onSignin, handleCloseClick }) => {
       isOpen={isOpen}
       handleCloseClick={handleCloseClick}
       onSubmit={handleSignin}
+      routing="Sign up"
+      routingHandler={handleRegisterClick}
       buttonText="Sign in"
     >
       <label htmlFor="email" className="modal__form-label">
@@ -29,7 +36,7 @@ const LoginModal = ({ isOpen, onSignin, handleCloseClick }) => {
         className="modal__form-input"
         id="email"
         name="email"
-        placeholder="jon@email.com"
+        placeholder="Enter Email"
         required
         minLength="2"
         maxLength="30"

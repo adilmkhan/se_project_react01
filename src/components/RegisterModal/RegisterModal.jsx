@@ -1,7 +1,12 @@
 import { useForm } from "../../hooks/useForm.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
-const RegisterModal = ({ isOpen, onSignup, handleCloseClick }) => {
+const RegisterModal = ({
+  isOpen,
+  onSignup,
+  handleCloseClick,
+  handleLoginClick,
+}) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -21,7 +26,9 @@ const RegisterModal = ({ isOpen, onSignup, handleCloseClick }) => {
       isOpen={isOpen}
       handleCloseClick={handleCloseClick}
       onSubmit={handleSignup}
-      buttonText="Next"
+      buttonText="Sign up"
+      routing="Sign in"
+      routingHandler={handleLoginClick}
     >
       <label htmlFor="register-email" className="modal__form-label">
         Email{" "}
@@ -31,7 +38,7 @@ const RegisterModal = ({ isOpen, onSignup, handleCloseClick }) => {
         className="modal__form-input"
         id="register-email"
         name="email"
-        placeholder="Email"
+        placeholder="Enter Email"
         required
         minLength="2"
         maxLength="30"
@@ -46,7 +53,7 @@ const RegisterModal = ({ isOpen, onSignup, handleCloseClick }) => {
         className="modal__form-input"
         id="register-password"
         name="password"
-        placeholder="Password"
+        placeholder="Enter Password"
         required
         minLength="2"
         maxLength="30"
@@ -54,31 +61,18 @@ const RegisterModal = ({ isOpen, onSignup, handleCloseClick }) => {
         onChange={handleChange}
       />
       <label htmlFor="register-name" className="modal__form-label">
-        Name{" "}
+        Username{" "}
       </label>
       <input
         type="text"
         className="modal__form-input"
         id="register-name"
         name="name"
-        placeholder="Name"
+        placeholder="Enter your username"
         required
         minLength="2"
         maxLength="30"
         value={values.name}
-        onChange={handleChange}
-      />
-      <label htmlFor="register-avatarURL" className="modal__form-label">
-        Avatar Url{" "}
-      </label>
-      <input
-        type="url"
-        className="modal__form-input"
-        id="register-avatarURL"
-        name="avatarLink"
-        placeholder="Avatar URL"
-        required
-        value={values.avatarLink}
         onChange={handleChange}
       />
     </ModalWithForm>

@@ -38,7 +38,7 @@ function App() {
   //Default = false
   const [newsIsLoading, setNewsIsLoading] = useState(false);
 
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("signup"); //Testing
 
   //TODO -- Deafult is false
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -181,11 +181,13 @@ function App() {
             isOpen={activeModal === "signup"}
             handleCloseClick={closeActiveModal}
             onSignup={handleRegister}
+            handleLoginClick={handleLoginClick}
           />
           <LoginModal
             isOpen={activeModal === "signin"}
             handleCloseClick={closeActiveModal}
             onSignin={handleLogin}
+            handleRegisterClick={handleRegisterClick}
           />
         </div>
       </>
