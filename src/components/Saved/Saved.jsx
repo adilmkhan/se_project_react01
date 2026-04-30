@@ -3,7 +3,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import { useContext } from "react";
 
-function Saved({ savedArticles }) {
+function Saved({ savedArticles, onRemoveItem }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -25,7 +25,13 @@ function Saved({ savedArticles }) {
       <section className="main__results-section">
         <ul className="main__results-container">
           {savedArticles.map((article) => {
-            return <SavedNewsCard key={article._id} article={article} />;
+            return (
+              <SavedNewsCard
+                onRemoveItem={onRemoveItem}
+                key={article._id}
+                article={article}
+              />
+            );
           })}
         </ul>
       </section>

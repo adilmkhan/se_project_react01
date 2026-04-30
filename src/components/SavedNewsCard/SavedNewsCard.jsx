@@ -1,7 +1,7 @@
 import "./SavedNewsCard.css";
 import defaultImage from "../../assets/placeholder_image.avif";
 
-function SavedNewsCard({ article }) {
+function SavedNewsCard({ article, onRemoveItem }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -14,7 +14,11 @@ function SavedNewsCard({ article }) {
   return (
     <li className="news-card">
       <div className="news-card__image-container">
-        <button type="button" className="news-card__delete-btn"></button>
+        <button
+          onClick={onRemoveItem}
+          type="button"
+          className="news-card__delete-btn"
+        ></button>
         <h2 className="news-card__image-description">{article.keyword}</h2>
         <img
           src={article.urlToImage || defaultImage}
