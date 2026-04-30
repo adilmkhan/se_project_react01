@@ -52,7 +52,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //Deafault = true
-  const [isAuthChecking, setIsAuthChecking] = useState(false); //Testing
+  const [isAuthChecking, setIsAuthChecking] = useState(false); //TODO-Testing
 
   //TODO-Changes needed to data-structure
   const [currentUser, setCurrentUser] = useState({
