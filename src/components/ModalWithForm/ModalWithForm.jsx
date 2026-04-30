@@ -11,12 +11,15 @@ function ModalWithForm({
   children,
   onSubmit,
   isFormValid,
+  errors,
 }) {
+  //   console.log("ModalWithForm errors:", errors);
+  //   console.log("errors.server:", errors.server);
   function routingCloseHanlder() {
     handleCloseClick();
     setTimeout(() => {
       routingHandler();
-    }, 490);
+    }, 500);
   }
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
@@ -30,6 +33,11 @@ function ModalWithForm({
         <h2 className="modal__form-title">{title}</h2>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
+          {errors.server && (
+            <span className="error-message modal__server-error">
+              {errors.server}
+            </span>
+          )}
           <button
             type="submit"
             className={`modal__button modal__button-save ${!isFormValid ? "button-disabled" : ""}`}

@@ -48,12 +48,24 @@
   border-radius: 8px;
 }
 
+.modal-register-success {
+  width: 430px;
+  height: 182px;
+}
+
 .modal__form-title {
   margin: 28px auto 0 28px;
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 24px;
   color: rgba(26, 27, 34, 1);
+}
+
+.modal__regiser-success-title {
+  display: inline-block;
+  max-width: 315px;
+  padding: 0;
+  margin-top: 43px;
 }
 
 /* .modal__button-close {
@@ -195,6 +207,11 @@
   cursor: pointer;
 }
 
+.modal__regiser-success-btn {
+  padding: 0;
+  margin: 14px auto 0 28px;
+}
+
 .button-disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -210,4 +227,8 @@
   font-size: 12px;
   margin-top: 4px;
   display: block;
+}
+
+.modal__server-error {
+  margin: 10px auto 0 auto;
 }

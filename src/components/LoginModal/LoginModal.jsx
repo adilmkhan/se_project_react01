@@ -51,6 +51,7 @@ const LoginModal = ({
       routingHandler={handleRegisterClick}
       buttonText="Sign in"
       isFormValid={isFormValid}
+      errors={errors}
     >
       <label htmlFor="email" className="modal__form-label">
         Email{" "}

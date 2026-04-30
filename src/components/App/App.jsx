@@ -19,6 +19,8 @@ import { getToken } from "../../utils/token";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import RegisterSuccessModal from "../RegisterSuccessModal/RegisterSuccessModal";
+import { useForm } from "../../hooks/useForm";
 
 function App() {
   //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
@@ -49,7 +51,7 @@ function App() {
     name: "Elise", //Testing
     avatar: "",
   });
-
+  const { setErrors } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -132,7 +134,28 @@ function App() {
       });
   };
 
-  const handleRegister = () => {};
+  const handleRegister = (inputValues) => {
+    auth
+      .register(
+        {
+          name: inputValues.name,
+          email: inputValues.email,
+          password: inputValues.password,
+        },
+        baseUrl,
+      )
+      .then(() => {
+        closeActiveModal();
+        setActiveModal("registersuccess");
+      })
+      .catch((error) => {
+        if (error.statusCode === 409) {
+          setErrors({ server: "This email is not available" });
+        } else {
+          setErrors({ server: "Registration failed. Please try again." });
+        }
+      });
+  };
 
   const handleLogin = () => {};
 
@@ -188,6 +211,12 @@ function App() {
             handleCloseClick={closeActiveModal}
             onSignin={handleLogin}
             handleRegisterClick={handleRegisterClick}
+            x
+          />
+          <RegisterSuccessModal
+            isOpen={activeModal === "registersuccess"}
+            handleLoginClick={handleLoginClick}
+            handleCloseClick={closeActiveModal}
           />
         </div>
       </>

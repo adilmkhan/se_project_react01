@@ -1,17 +1,10 @@
 import { useState } from "react";
 
-// export function useForm(defaultValues) {
-//   const [values, setValues] = useState(defaultValues);
-
-//   function handleChange(evt) {
-//     const { name, value } = evt.target;
-//     setValues({ ...values, [name]: value });
-//   }
-//   return { values, setValues, handleChange };
-// }
 export function useForm(defaultValues, validators = {}) {
   const [values, setValues] = useState(defaultValues);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    server: "This email is not available",
+  }); //testing;
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -39,11 +32,22 @@ export function useForm(defaultValues, validators = {}) {
   }
   function resetForm() {
     setValues(defaultValues);
+    // setErrors({
+    //   server: "This email is not available",
+    // }); //Temporary Testing
     setErrors({});
   }
   const isFormValid =
     Object.keys(errors).length === 0 &&
     Object.values(values).every((value) => value.trim() !== "");
 
-  return { values, setValues, handleChange, errors, resetForm, isFormValid };
+  return {
+    values,
+    setValues,
+    handleChange,
+    setErrors,
+    errors,
+    resetForm,
+    isFormValid,
+  };
 }
