@@ -38,7 +38,7 @@ function App() {
   //Default = false
   const [newsIsLoading, setNewsIsLoading] = useState(false);
 
-  const [activeModal, setActiveModal] = useState("signup"); //Testing
+  const [activeModal, setActiveModal] = useState(""); //Testing
 
   //TODO -- Deafult is false
   const [isLoggedIn, setIsLoggedIn] = useState(false);

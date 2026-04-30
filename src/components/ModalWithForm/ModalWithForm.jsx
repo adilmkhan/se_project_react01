@@ -10,6 +10,7 @@ function ModalWithForm({
   handleCloseClick,
   children,
   onSubmit,
+  isFormValid,
 }) {
   function routingCloseHanlder() {
     handleCloseClick();
@@ -29,7 +30,11 @@ function ModalWithForm({
         <h2 className="modal__form-title">{title}</h2>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
-          <button type="submit" className="modal__button modal__button-save">
+          <button
+            type="submit"
+            className={`modal__button modal__button-save ${!isFormValid ? "button-disabled" : ""}`}
+            disabled={!isFormValid}
+          >
             {buttonText}
           </button>
           <p className="modal__or">

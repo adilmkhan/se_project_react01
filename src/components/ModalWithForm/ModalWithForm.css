@@ -194,3 +194,20 @@
   line-height: 100%;
   cursor: pointer;
 }
+
+.button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input-error {
+  border: 2px solid #ff6b6b;
+  background-color: #fff5f5;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
