@@ -11,12 +11,15 @@ function About() {
       <div className="about__content">
         <h1 className="about__content-title">About the author</h1>
         <p className="about__content-description">
-          This block describes the project author. Here you should indicate your
-          name, what you do, and which development technologies you know.
+          Adil Khan is a Solutions Architect with the State of Missouri, working
+          at the intersection of cloud architecture, healthcare systems, and
+          emerging AI applications. He is completing a full-stack software
+          engineering program focused on the MERN stack while building modern
+          web applications and cloud-based solutions.
         </p>
         <p className="about__content-experience">
-          You can also talk about your experience with TripleTen, what you
-          learned there, and how you can help potential customers.
+          His work blends software development, cloud engineering, and system
+          design to create practical, scalable technology solutions.
         </p>
       </div>
     </>
