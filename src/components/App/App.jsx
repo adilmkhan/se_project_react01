@@ -49,7 +49,7 @@ function App() {
   const [activeModal, setActiveModal] = useState(""); //Testing
 
   //TODO -- Deafult is false
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   //Deafault = true
   const [isAuthChecking, setIsAuthChecking] = useState(false); //TODO-Testing
@@ -233,7 +233,7 @@ function App() {
   // }, []);
 
   return (
-    <CurrentUserContext.Provider value={{ currentUser }}>
+    <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <>
         <div className="page">
           <div className="page__content">
@@ -241,6 +241,7 @@ function App() {
               handleLoginClick={handleLoginClick}
               isLoggedIn={isLoggedIn}
               currentUser={currentUser}
+              setIsLoggedIn={setIsLoggedIn}
             />
             {isAuthChecking ? (
               <div>Loading...</div>

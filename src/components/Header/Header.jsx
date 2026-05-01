@@ -2,8 +2,17 @@ import { NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 import signout from "../../assets/logout_home.svg";
 import signoutSaved from "../../assets/logout.svg";
+import { useNavigate } from "react-router-dom";
+import { removeToken } from "../../utils/token";
 
-function Header({ isLoggedIn, currentUser, handleLoginClick }) {
+function Header({ isLoggedIn, currentUser, handleLoginClick, setIsLoggedIn }) {
+  const navigate = useNavigate();
+
+  function logOut() {
+    removeToken();
+    navigate("/");
+    setIsLoggedIn(false);
+  }
   const location = useLocation();
   const isOnSavedNews = location.pathname === "/saved-articles";
   return (
@@ -29,6 +38,7 @@ function Header({ isLoggedIn, currentUser, handleLoginClick }) {
               Saved articles
             </NavLink>
             <button
+              onClick={logOut}
               type="button"
               className={`header__signout-btn ${isOnSavedNews ? "header__signout-btn-saved" : ""}`}
             >
