@@ -5,7 +5,7 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -33,7 +33,7 @@ function App() {
   const [newsData, setNewsData] = useState([]);
 
   //TODO -- default should be an empty array
-  const [savedArticles, setSavedArticles] = useState(defaultNewsArticles);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -49,16 +49,15 @@ function App() {
   const [activeModal, setActiveModal] = useState(""); //Testing
 
   //TODO -- Deafult is false
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //Deafault = true
-  const [isAuthChecking, setIsAuthChecking] = useState(false); //TODO-Testing
+  const [isAuthChecking, setIsAuthChecking] = useState(true); //TODO-Testing
 
   //TODO-Changes needed to data-structure
   const [currentUser, setCurrentUser] = useState({
     _id: "",
-    name: "Elise", //Testing
-    avatar: "",
+    name: "", //Testing
   });
   const { setErrors } = useForm();
   const navigate = useNavigate();
@@ -129,7 +128,7 @@ function App() {
         description: cardData.description,
         urlToImage: cardData.urlToImage,
         publishedAt: cardData.publishedAt,
-        source: cardData.source.name,
+        source: cardData.source, //previously .source.name
         keyword: cardData.keyword,
       },
       baseUrl,
@@ -209,28 +208,28 @@ function App() {
       .catch(console.error);
   };
 
-  // useEffect(() => {
-  //   getCards(baseUrl)
-  //     .then((items) => {
-  //       setSavedArticles(items.data);
-  //     })
-  //     .catch(console.error);
-  //   const jwt = getToken();
-  //   if (!jwt) {
-  //     return setIsAuthChecking(false);
-  //   }
-  //   getCurrentUser(baseUrl, jwt)
-  //     .then((response) => {
-  //       setIsAuthChecking(false);
-  //       const { _id, name } = response.data;
-  //       setIsLoggedIn(true);
-  //       setCurrentUser({ _id, name });
-  //     })
-  //     .catch((err) => {
-  //       setIsAuthChecking(false);
-  //       console.error(err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    getCards(baseUrl)
+      .then((items) => {
+        setSavedArticles(items.data);
+      })
+      .catch(console.error);
+    const jwt = getToken();
+    if (!jwt) {
+      return setIsAuthChecking(false);
+    }
+    getCurrentUser(baseUrl, jwt)
+      .then((response) => {
+        setIsAuthChecking(false);
+        const { _id, name } = response.data;
+        setIsLoggedIn(true);
+        setCurrentUser({ _id, name });
+      })
+      .catch((err) => {
+        setIsAuthChecking(false);
+        console.error(err);
+      });
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>

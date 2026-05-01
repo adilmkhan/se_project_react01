@@ -52,7 +52,7 @@ function Main({
                 );
                 return (
                   <NewsCard
-                    key={`${article.id}-${article.source.name}`}
+                    key={`${article.title}-${article.publishedAt}`}
                     article={article}
                     isLoggedIn={isLoggedIn}
                     onNewsAdd={handleAddArticle}

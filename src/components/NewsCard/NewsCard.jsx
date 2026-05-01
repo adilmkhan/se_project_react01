@@ -16,7 +16,9 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
     const newsValues = {
       title: article.title,
       description: article.description,
-      urlToImage: article.urlToImage,
+      urlToImage:
+        article.urlToImage ||
+        "https://images.unsplash.com/photo-1495020689067-958852a7765e",
       publishedAt: article.publishedAt,
       source: article.source.name,
       keyword: article.keyword,

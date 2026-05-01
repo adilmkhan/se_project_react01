@@ -17,8 +17,16 @@ function Saved({ savedArticles, onRemoveItem }) {
         <p className="saved__info-keywords">
           By keywords:{" "}
           <span className="saved__info-karticles">
-            {savedArticles[0].keyword}, {savedArticles[1].keyword}, and{" "}
-            {savedArticles.length - 2} other
+            {savedArticles.length >= 2 ? (
+              <>
+                {savedArticles[0].keyword}, {savedArticles[1].keyword}, and{" "}
+                {savedArticles.length - 2} other
+              </>
+            ) : savedArticles.length === 1 ? (
+              savedArticles[0].keyword
+            ) : (
+              "No saved articles"
+            )}
           </span>
         </p>
       </section>

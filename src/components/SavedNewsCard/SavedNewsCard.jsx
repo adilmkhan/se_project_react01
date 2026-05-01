@@ -15,7 +15,7 @@ function SavedNewsCard({ article, onRemoveItem }) {
     <li className="news-card">
       <div className="news-card__image-container">
         <button
-          onClick={onRemoveItem}
+          onClick={() => onRemoveItem(article)}
           type="button"
           className="news-card__delete-btn"
         ></button>
