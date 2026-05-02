@@ -25,7 +25,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegisterSuccessModal from "../RegisterSuccessModal/RegisterSuccessModal";
-import { useForm } from "../../hooks/useForm";
+// import { useForm } from "../../hooks/useForm";
 import * as auth from "../../utils/auth";
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
     _id: "",
     name: "",
   });
-  const { setErrors } = useForm();
+  // const { errors, setErrors } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -98,7 +98,7 @@ function App() {
               return { ...item, keyword: searchFormData.news };
             }),
           );
-          console.log(newsData);
+          // console.log(newsData);
           setNewsResults(true);
         }
       })
@@ -152,7 +152,7 @@ function App() {
       .catch(console.error);
   };
 
-  const handleRegister = (inputValues) => {
+  const handleRegister = (inputValues, setErrors) => {
     auth
       .register(
         {
@@ -167,10 +167,16 @@ function App() {
         setActiveModal("registersuccess");
       })
       .catch((error) => {
-        if (error.statusCode === 409) {
-          setErrors({ server: "This email is not available" });
+        if (error.status === 409) {
+          setErrors((prev) => ({
+            ...prev,
+            server: "This email is not available",
+          }));
         } else {
-          setErrors({ server: "Registration failed. Please try again." });
+          setErrors((prev) => ({
+            ...prev,
+            server: "Registration failed. Please try again.",
+          }));
         }
       });
   };

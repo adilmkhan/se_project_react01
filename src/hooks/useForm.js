@@ -2,9 +2,7 @@ import { useState } from "react";
 
 export function useForm(defaultValues, validators = {}) {
   const [values, setValues] = useState(defaultValues);
-  const [errors, setErrors] = useState({
-    server: "This email is not available",
-  }); //testing;
+  const [errors, setErrors] = useState({}); //testing;
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -19,6 +17,8 @@ export function useForm(defaultValues, validators = {}) {
 
       setErrors((prev) => {
         const newErrors = { ...prev };
+
+        delete newErrors.server;
 
         if (errorMessage) {
           newErrors[name] = errorMessage;

@@ -24,10 +24,8 @@ const RegisterModal = ({
     password: validatePassword,
     name: validateName,
   };
-  const { values, handleChange, errors, resetForm, isFormValid } = useForm(
-    defaultValues,
-    validators,
-  );
+  const { values, handleChange, errors, setErrors, resetForm, isFormValid } =
+    useForm(defaultValues, validators);
 
   useEffect(() => {
     if (isOpen) {
@@ -37,7 +35,7 @@ const RegisterModal = ({
 
   function handleSignup(evt) {
     evt.preventDefault();
-    onSignup(values);
+    onSignup(values, setErrors);
   }
   return (
     <ModalWithForm

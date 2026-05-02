@@ -7,7 +7,12 @@ export const register = ({ name, email, password }, baseUrl) => {
     },
     body: JSON.stringify({ name, email, password }),
   }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    return res.ok
+      ? res.json()
+      : Promise.reject({
+          status: res.status,
+          message: `Error: ${res.status}`,
+        });
   });
 };
 
