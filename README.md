@@ -105,4 +105,6 @@ src/
 
 This project was developed as part of the TripleTen Software Engineering program.
 
+### Click **[here](https://www.loom.com/share/6481984d0c1641d9842be63592b4c638)** to be directed to Project Pitch.
+
 ### Click **[here](https://github.com/adilmkhan/se_project_express01/pull/1)** to be directed to Express Backend Server Pull Request.
