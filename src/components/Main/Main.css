@@ -178,14 +178,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-/* When no results */
-.main__results-container:empty::after {
-  content: "No articles found. Try a different search term.";
-  grid-column: 1 / -1;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: #b6bcbf;
-  padding: 40px 0;
-}

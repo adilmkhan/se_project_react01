@@ -35,3 +35,10 @@
   font-size: 18px;
   color: rgba(26, 27, 34, 1);
 }
+
+.main__no-saved-articles {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(26, 27, 34, 1);
+}
