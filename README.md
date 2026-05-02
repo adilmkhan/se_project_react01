@@ -62,36 +62,32 @@ The backend service provides authentication and endpoints for saving and deletin
 
 ## Project Structure
 
-src
-│
-├── components
-│ ├── Header
-│ ├── Main
-│ ├── SearchForm
-│ ├── NewsCard
-│ ├── SavedNewsCard
-│ ├── Saved
-│ ├── Footer
-│ ├── LoginModal
-│ ├── RegisterModal
-│ ├── RegisterSuccessModal
-│ └── Preloader
-│
-├── contexts
-│ └── CurrentUserContext
-│
-├── hooks
-│ └── useForm
-│
-├── utils
-│ ├── api.js
-│ ├── newsApi.js
-│ ├── auth.js
-│ └── token.js
-│
-├── assets
-│
+```text
+src/
+├── components/
+│   ├── Header/
+│   ├── Main/
+│   ├── SearchForm/
+│   ├── NewsCard/
+│   ├── SavedNewsCard/
+│   ├── Saved/
+│   ├── Footer/
+│   ├── LoginModal/
+│   ├── RegisterModal/
+│   ├── RegisterSuccessModal/
+│   └── Preloader/
+├── contexts/
+│   └── CurrentUserContext.js
+├── hooks/
+│   └── useForm.js
+├── utils/
+│   ├── api.js
+│   ├── newsApi.js
+│   ├── auth.js
+│   └── token.js
+├── assets/
 └── App.jsx
+```
 
 ---
 
