@@ -46,18 +46,17 @@ function App() {
   //Default = false
   const [newsIsLoading, setNewsIsLoading] = useState(false);
 
-  const [activeModal, setActiveModal] = useState(""); //Testing
+  const [activeModal, setActiveModal] = useState("");
 
   //TODO -- Deafult is false
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //Deafault = true
-  const [isAuthChecking, setIsAuthChecking] = useState(true); //TODO-Testing
+  const [isAuthChecking, setIsAuthChecking] = useState(true);
 
-  //TODO-Changes needed to data-structure
   const [currentUser, setCurrentUser] = useState({
     _id: "",
-    name: "", //Testing
+    name: "",
   });
   const { setErrors } = useForm();
   const navigate = useNavigate();
@@ -113,7 +112,6 @@ function App() {
       });
   };
 
-  //TODO--API call for showmore...
   const handleShowMoreNews = () => {
     setVisibleCount((prev) => {
       return prev + 3;
@@ -128,7 +126,7 @@ function App() {
         description: cardData.description,
         urlToImage: cardData.urlToImage,
         publishedAt: cardData.publishedAt,
-        source: cardData.source, //previously .source.name
+        source: cardData.source,
         keyword: cardData.keyword,
       },
       baseUrl,

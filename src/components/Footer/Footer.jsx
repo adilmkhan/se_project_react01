@@ -1,13 +1,16 @@
 import "./Footer.css";
 import github from "../../assets/github.svg";
 import linkedin from "../../assets/LinkedIn.svg";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
       <p className="footer__content">@ 2026 NewSite, Powered by News Api</p>
       <div className="footer__navigation">
-        <p className="footer__home-navigation">Home</p>
+        <NavLink to="/" className="footer__home-navigation">
+          Home
+        </NavLink>
         <p className="footer__tripleten-navigation">TripleTen</p>
         <a
           href="https://github.com/adilmkhan"

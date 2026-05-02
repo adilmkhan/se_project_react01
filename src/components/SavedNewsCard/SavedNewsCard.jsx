@@ -34,7 +34,7 @@ function SavedNewsCard({ article, onRemoveItem }) {
         </div>
         <h3 className="news-card__title">{article.title}</h3>
         <p className="news-card__description">{article.description}</p>
-        <p className="news-card__source">{article.source.name}</p>
+        <p className="news-card__source">{article.source}</p>
       </div>
     </li>
   );
