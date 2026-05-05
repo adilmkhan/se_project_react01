@@ -1,6 +1,11 @@
+const newsApiBaseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://nomoreparties.co/news/v2/everything"
+    : "https://newsapi.org/v2/everything";
+
 export const getNews = ({ q, pageSize }, apiKey, from, to) => {
   return fetch(
-    `https://newsapi.org/v2/everything?q=${q}&from=${from}&to=${to}&${pageSize}&apiKey=${apiKey}`,
+    `${newsApiBaseUrl}?q=${q}&from=${from}&to=${to}&${pageSize}&apiKey=${apiKey}`,
   ).then((res) => {
     if (res.ok) {
       return res.json();

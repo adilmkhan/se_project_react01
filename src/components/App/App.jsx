@@ -62,10 +62,9 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://api.the-newsapp.blinklab.com"
-      : "http://localhost:3001";
+  const baseUrl = import.meta.env.PROD
+    ? "https://api.the-newsapp.blinklab.com"
+    : "http://localhost:3001";
 
   const closeActiveModal = () => {
     setActiveModal("");
