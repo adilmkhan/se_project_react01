@@ -101,6 +101,16 @@ src/
 
 ---
 
+## Deployment and Infrastructure
+
+The application was deployed to AWS using a combination of Terraform and manual application deployment steps. Terraform was used to provision the core cloud infrastructure, including the VPC, public subnet, route table, internet gateway, security group, EC2 instance, SSH key pair, and Elastic IP.
+
+The EC2 server was bootstrapped with Node.js, MongoDB, PM2, Nginx, UFW, and Certbot. Nginx serves the built React frontend and reverse proxies API requests to the Express backend. HTTPS was configured with Certbot, and the frontend production build was uploaded to the server using `scp`.
+
+This deployment helped separate infrastructure setup from application deployment while making the AWS environment repeatable and easier to manage.
+
+---
+
 ## License
 
 This project was developed as part of the TripleTen Software Engineering program.
@@ -108,3 +118,5 @@ This project was developed as part of the TripleTen Software Engineering program
 ### Click **[here](https://www.loom.com/share/6481984d0c1641d9842be63592b4c638)** to be directed to Project Pitch.
 
 ### Click **[here](https://github.com/adilmkhan/se_project_express01/pull/1)** to be directed to Express Backend Server Pull Request.
+
+### Click **[here](https://the-newsapp.blinklab.com/)** to be directed to the News App Webpage.
