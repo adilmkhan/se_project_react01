@@ -1,7 +1,6 @@
-const newsApiBaseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://nomoreparties.co/news/v2/everything"
-    : "https://newsapi.org/v2/everything";
+const newsApiBaseUrl = import.meta.env.PROD
+  ? "https://nomoreparties.co/news/v2/everything"
+  : "https://newsapi.org/v2/everything";
 
 export const getNews = ({ q, pageSize }, apiKey, from, to) => {
   return fetch(
