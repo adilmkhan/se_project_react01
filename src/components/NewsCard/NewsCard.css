@@ -148,7 +148,7 @@
   bottom: 16px;
 }
 
-.news-card__link {
+.news-card__url {
   text-decoration: none;
   color: inherit;
 }

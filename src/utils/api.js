@@ -8,7 +8,7 @@ export const getCards = (baseUrl) => {
 };
 
 export const addArticle = (
-  { title, description, urlToImage, publishedAt, source, keyword },
+  { title, description, urlToImage, publishedAt, source, url, keyword },
   baseUrl,
   jwt,
 ) => {
@@ -25,6 +25,7 @@ export const addArticle = (
       urlToImage,
       publishedAt,
       source,
+      url,
       keyword,
     }),
   }).then((res) => {

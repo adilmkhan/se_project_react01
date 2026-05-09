@@ -36,7 +36,14 @@ function SavedNewsCard({ article, onRemoveItem }) {
         </div>
         <h3 className="saved-news-card__title">{article.title}</h3>
         <p className="saved-news-card__description">{article.description}</p>
-        <p className="saved-news-card__source">{article.source}</p>
+        <a
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="saved-news-card__url"
+        >
+          <p className="saved-news-card__source">{article.source}</p>
+        </a>
       </div>
     </li>
   );

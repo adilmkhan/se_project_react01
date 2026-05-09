@@ -130,6 +130,11 @@
   bottom: 16px;
 }
 
+.saved-news-card__url {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media screen and (max-width: 768px) {
   .saved-news-card {
     width: 224px;

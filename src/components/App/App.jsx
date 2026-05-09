@@ -122,6 +122,7 @@ function App() {
 
   const handleAddArticle = (cardData) => {
     const jwt = getToken();
+    //TODO -- add url: cardData.url
     addArticle(
       {
         title: cardData.title,
@@ -129,6 +130,7 @@ function App() {
         urlToImage: cardData.urlToImage,
         publishedAt: cardData.publishedAt,
         source: cardData.source,
+        url: cardData.url,
         keyword: cardData.keyword,
       },
       baseUrl,

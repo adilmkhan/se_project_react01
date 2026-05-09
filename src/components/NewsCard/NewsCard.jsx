@@ -13,6 +13,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
 
   function handleSubmit(evt) {
     // evt.preventDefault();
+    //TODO -- add url
     const newsValues = {
       title: article.title,
       description: article.description,
@@ -21,6 +22,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
         "https://images.unsplash.com/photo-1495020689067-958852a7765e",
       publishedAt: article.publishedAt,
       source: article.source.name,
+      url: article.url,
       keyword: article.keyword,
     };
     onNewsAdd(newsValues);
@@ -55,7 +57,14 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
         </div>
         <h3 className="news-card__title">{article.title}</h3>
         <p className="news-card__description">{article.description}</p>
-        <p className="news-card__source">{article.source.name}</p>
+        <a
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="news-card__url"
+        >
+          <p className="news-card__source">{article.source.name}</p>
+        </a>
       </div>
     </li>
   );
