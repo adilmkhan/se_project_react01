@@ -153,15 +153,45 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    padding: 24px 16px 20px;
+    padding: 20px 40px;
   }
 
   .header__content-container {
     gap: 16px;
   }
 
-  .header__signin-btn {
-    padding: 12px 16px;
+  .header__home-button {
     font-size: 16px;
   }
+
+  .header__signin-btn {
+    padding: 8px 12px;
+    font-size: 16px;
+    width: 128px;
+  }
+
+  .header__saved-articles-btn {
+    font-size: 16px;
+  }
+
+  .header__signout-btn {
+    font-size: 16px;
+    padding: 8px;
+    width: 100px;
+  }
+
+  .header__signout-btn-image {
+    margin-left: 5px;
+  }
+
+  .header__home-button.active::after {
+    bottom: -20px;
+  }
+
+  .header__saved-articles-btn.active::after {
+    bottom: -20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
 }

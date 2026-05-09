@@ -152,3 +152,35 @@
   text-decoration: none;
   color: inherit;
 }
+
+@media screen and (max-width: 768px) {
+  .news-card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .news-card__content {
+    padding: 16px;
+  }
+  .news-card__image {
+    width: 224px;
+    height: 150px;
+  }
+  .news-card__title {
+    font-size: 22px;
+    margin-top: 12px;
+  }
+
+  .news-card__save-btn {
+    top: 8px;
+    right: 8px;
+  }
+
+  .news-card__inactive-save-btn {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}

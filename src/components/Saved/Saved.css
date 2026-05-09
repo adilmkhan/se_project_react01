@@ -42,3 +42,20 @@
   font-size: 18px;
   color: rgba(26, 27, 34, 1);
 }
+
+@media screen and (max-width: 768px) {
+  .saved__info {
+    padding: 24px 40px;
+  }
+
+  .saved__info-header {
+    font-size: 14px;
+  }
+
+  .saved__info-consumer {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+}

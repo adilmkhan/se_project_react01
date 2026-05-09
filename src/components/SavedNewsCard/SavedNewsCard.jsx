@@ -12,29 +12,31 @@ function SavedNewsCard({ article, onRemoveItem }) {
   };
 
   return (
-    <li className="news-card">
+    <li className="saved-news-card">
       <div className="news-card__image-container">
         <button
           onClick={() => onRemoveItem(article)}
           type="button"
           className="news-card__delete-btn"
         ></button>
-        <h2 className="news-card__image-description">{article.keyword}</h2>
+        <h2 className="saved-news-card__image-description">
+          {article.keyword}
+        </h2>
         <img
           src={article.urlToImage || defaultImage}
           alt={article.title}
-          className="news-card__image"
+          className="saved-news-card__image"
         />
       </div>
-      <div className="news-card__content">
+      <div className="saved-news-card__content">
         <div className="news-card__meta">
-          <time className="news-card__date">
+          <time className="saved-news-card__date">
             {formatDate(article.publishedAt)}
           </time>
         </div>
-        <h3 className="news-card__title">{article.title}</h3>
-        <p className="news-card__description">{article.description}</p>
-        <p className="news-card__source">{article.source}</p>
+        <h3 className="saved-news-card__title">{article.title}</h3>
+        <p className="saved-news-card__description">{article.description}</p>
+        <p className="saved-news-card__source">{article.source}</p>
       </div>
     </li>
   );
