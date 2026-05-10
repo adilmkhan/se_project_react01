@@ -1,7 +1,7 @@
 import "./NewsCard.css";
 import defaultImage from "../../assets/placeholder_image.avif";
 
-function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
+function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved, savedId }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -11,9 +11,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
     });
   };
 
-  function handleSubmit(evt) {
-    // evt.preventDefault();
-    //TODO -- add url
+  function handleSubmit() {
     const newsValues = {
       title: article.title,
       description: article.description,
@@ -25,7 +23,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
       url: article.url,
       keyword: article.keyword,
     };
-    onNewsAdd(newsValues);
+    onNewsAdd({ isSaved, savedId }, newsValues);
   }
   return (
     <li className="news-card">
@@ -38,7 +36,7 @@ function NewsCard({ article, isLoggedIn, onNewsAdd, isSaved }) {
         {isLoggedIn ? (
           <button
             onClick={handleSubmit}
-            type="submit"
+            type="button"
             className={`news-card__save-btn ${isSaved ? "news-card__saved-btn-saved" : ""}`}
           ></button>
         ) : (

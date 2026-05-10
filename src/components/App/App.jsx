@@ -120,9 +120,20 @@ function App() {
     });
   };
 
-  const handleAddArticle = (cardData) => {
+  const handleAddArticle = ({ isSaved, savedId }, cardData) => {
     const jwt = getToken();
-    //TODO -- add url: cardData.url
+
+    if (isSaved) {
+      deleteCard({ baseUrl, jwt, id: savedId })
+        .then(() => {
+          setSavedArticles((prev) =>
+            prev.filter((item) => item._id !== savedId),
+          );
+        })
+        .catch(console.error);
+      return;
+    }
+
     addArticle(
       {
         title: cardData.title,
@@ -269,6 +280,7 @@ function App() {
                       visibleCount={visibleCount}
                       handleAddArticle={handleAddArticle}
                       savedArticles={savedArticles}
+                      currentUser={currentUser}
                     />
                   }
                 />

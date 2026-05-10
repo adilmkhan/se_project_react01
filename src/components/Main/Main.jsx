@@ -16,6 +16,7 @@ function Main({
   visibleCount,
   handleAddArticle,
   savedArticles,
+  currentUser,
 }) {
   return (
     <main className="main">
@@ -45,11 +46,14 @@ function Main({
             <h1 className="main__results-section-title">Search Results</h1>
             <ul className="main__results-container">
               {newsData.slice(0, visibleCount).map((article) => {
-                const isSaved = savedArticles.some(
-                  (savedArticle) =>
-                    savedArticle.title === article.title &&
-                    savedArticle.description === article.description,
+                const savedArticle = savedArticles.find(
+                  (item) =>
+                    item.owner === currentUser._id &&
+                    item.title === article.title &&
+                    item.description === article.description,
                 );
+                const isSaved = Boolean(savedArticle);
+
                 return (
                   <NewsCard
                     key={`${article.title}-${article.publishedAt}`}
@@ -57,6 +61,7 @@ function Main({
                     isLoggedIn={isLoggedIn}
                     onNewsAdd={handleAddArticle}
                     isSaved={isSaved}
+                    savedId={savedArticle?._id || null}
                   />
                 );
               })}
