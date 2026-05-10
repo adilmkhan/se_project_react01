@@ -58,4 +58,13 @@
 }
 
 @media screen and (max-width: 320px) {
+  .saved__info {
+    padding: 8px 16px;
+  }
+  .saved__info-consumer {
+    max-width: 288px;
+  }
+  .saved__info-keywords {
+    max-width: 288px;
+  }
 }

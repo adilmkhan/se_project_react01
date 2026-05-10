@@ -60,4 +60,20 @@
 }
 
 @media screen and (max-width: 320px) {
+  .search-form__input-container {
+    max-width: 288px;
+    margin: 0 auto;
+  }
+
+  .search-form__input {
+    max-width: 288px;
+    padding: 17px 16px;
+  }
+
+  .search-form__button {
+    top: 68.4px;
+    max-width: 288px;
+    padding: 16px 116px;
+    /* right: 200; */
+  }
 }

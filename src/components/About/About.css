@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 600px;
+  max-width: 600px;
   /* height: 120px; */
   color: rgba(26, 27, 34, 1);
   margin-left: 56px;
@@ -62,4 +62,16 @@
 }
 
 @media screen and (max-width: 320px) {
+  .about__image {
+    width: 272px;
+    height: 272px;
+  }
+
+  .about__content {
+    margin: 0;
+  }
+
+  .about__content-title {
+    margin-top: 24px;
+  }
 }

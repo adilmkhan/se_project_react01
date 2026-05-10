@@ -13,9 +13,7 @@ function About() {
         <p className="about__content-description">
           Adil Khan is a Solutions Architect with the State of Missouri, working
           at the intersection of cloud architecture, healthcare systems, and
-          emerging AI applications. He is completing a full-stack software
-          engineering program focused on the MERN stack while building modern
-          web applications and cloud-based solutions.
+          emerging AI applications.
         </p>
         <p className="about__content-experience">
           His work blends software development, cloud engineering, and system
