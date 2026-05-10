@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export function useForm(defaultValues, validators = {}) {
   const [values, setValues] = useState(defaultValues);
@@ -7,10 +7,8 @@ export function useForm(defaultValues, validators = {}) {
   function handleChange(evt) {
     const { name, value } = evt.target;
 
-    // Update values
     setValues((prev) => ({ ...prev, [name]: value }));
 
-    // Check if this field has a validator
     const validator = validators[name];
     if (validator) {
       const errorMessage = validator(value);
@@ -30,13 +28,10 @@ export function useForm(defaultValues, validators = {}) {
       });
     }
   }
-  function resetForm() {
+  const resetForm = useCallback(() => {
     setValues(defaultValues);
-    // setErrors({
-    //   server: "This email is not available",
-    // }); //Temporary Testing
     setErrors({});
-  }
+  }, [defaultValues]);
   const isFormValid =
     Object.keys(errors).length === 0 &&
     Object.values(values).every((value) => value.trim() !== "");

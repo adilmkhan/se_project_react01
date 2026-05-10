@@ -10,7 +10,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import { apiKey, defaultNewsArticles } from "../../utils/constants";
+import { apiKey } from "../../utils/constants";
 import { getNews } from "../../utils/newsApi";
 import {
   getCards,
@@ -25,46 +25,40 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegisterSuccessModal from "../RegisterSuccessModal/RegisterSuccessModal";
-// import { useForm } from "../../hooks/useForm";
 import * as auth from "../../utils/auth";
 
+const baseUrl = import.meta.env.PROD
+  ? "https://api.the-newsapp.blinklab.com"
+  : "http://localhost:3001";
+
 function App() {
-  //TODO--default shoud be an empty array like so: const  [newsData, setNewsData] = useState([]);
   const [newsData, setNewsData] = useState([]);
 
-  //TODO -- default should be an empty array
   const [savedArticles, setSavedArticles] = useState([]);
 
   const [visibleCount, setVisibleCount] = useState(3);
 
-  //Default = false
   const [newsResults, setNewsResults] = useState(false);
 
-  //Deafult = false
   const [noNewsResults, setNoNewsResults] = useState(false);
 
-  //Default = false
   const [newsIsLoading, setNewsIsLoading] = useState(false);
 
   const [activeModal, setActiveModal] = useState("");
 
-  //TODO -- Deafult is false
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  //Deafault = true
-  const [isAuthChecking, setIsAuthChecking] = useState(true);
+  const [isAuthChecking, setIsAuthChecking] = useState(() =>
+    Boolean(getToken()),
+  );
 
   const [currentUser, setCurrentUser] = useState({
     _id: "",
     name: "",
   });
-  // const { errors, setErrors } = useForm();
+
   const navigate = useNavigate();
   const location = useLocation();
-
-  const baseUrl = import.meta.env.PROD
-    ? "https://api.the-newsapp.blinklab.com"
-    : "http://localhost:3001";
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -100,7 +94,6 @@ function App() {
               return { ...item, keyword: searchFormData.news };
             }),
           );
-          // console.log(newsData);
           setNewsResults(true);
         }
       })
@@ -235,7 +228,7 @@ function App() {
       .catch(console.error);
     const jwt = getToken();
     if (!jwt) {
-      return setIsAuthChecking(false);
+      return;
     }
     getCurrentUser(baseUrl, jwt)
       .then((response) => {
