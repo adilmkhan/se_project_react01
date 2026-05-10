@@ -6,7 +6,13 @@ import signoutSaved from "../../assets/logout.svg";
 import { useNavigate } from "react-router-dom";
 import { removeToken } from "../../utils/token";
 
-function Header({ isLoggedIn, currentUser, handleLoginClick, setIsLoggedIn }) {
+function Header({
+  isLoggedIn,
+  currentUser,
+  handleLoginClick,
+  setIsLoggedIn,
+  isModalOpen,
+}) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -72,12 +78,14 @@ function Header({ isLoggedIn, currentUser, handleLoginClick, setIsLoggedIn }) {
           )}
         </div>
         {/* Mobile hamburger button */}
-        <button
-          className={`header__menu-button ${isOnSavedNews ? "header__menu-button-saved" : ""}`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? "x" : "="}
-        </button>
+        {!isModalOpen && (
+          <button
+            className={`header__menu-button ${isOnSavedNews ? "header__menu-button-saved" : ""}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? "x" : "="}
+          </button>
+        )}
       </div>
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (

@@ -21,22 +21,6 @@
   transition-delay: 0s;
 }
 
-.modal__radio-buttons {
-  display: flex;
-  flex-direction: column;
-  border: 0;
-  margin-top: 24px;
-  padding: 0;
-}
-
-.modal__label-type-radio {
-  /* margin-top: 8px; */
-}
-
-.modal__radio-input {
-  margin-top: 0;
-}
-
 .modal__container {
   display: flex;
   align-items: center;
@@ -68,21 +52,6 @@
   margin-top: 43px;
 }
 
-/* .modal__button-close {
-  background-image: url(../../assets/close.svg);
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 20px;
-  right: 28px;
-  border: none;
-  padding: 0;
-  margin: 0;
-  background-color: unset;
-  cursor: pointer;
-  transition: background-image 1s linear;
-} */
-
 .modal__button-close_add {
   background-image: url(../../assets/close.svg);
   position: absolute;
@@ -109,7 +78,6 @@
 
 .modal__form-label {
   margin: 24px 0 0;
-  /* line-height: 110.00000000000001%; */
   color: rgba(47, 113, 229, 1);
   font-family: "Inter";
   font-weight: 400;
@@ -125,10 +93,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 8px 0 0;
-  /* border: 1px solid rgba(33, 33, 33, 0.4); */
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 1);
-  /* border-radius: 8px; */
   transition: opacity 1s linear;
   font-family: "Inter";
   font-weight: 400;
@@ -150,13 +116,10 @@
 }
 
 .modal__button-save {
-  /* width: 130px; */
   background-color: rgba(47, 113, 229, 1);
   border-radius: 100px;
-  /* padding: 18px 58px; */
   padding: 20px 147.5px;
   color: rgba(255, 255, 255, 1);
-  /* font-size: 16px; */
   line-height: 100%;
   margin: 32px auto 16px auto;
   cursor: pointer;
@@ -231,4 +194,43 @@
 
 .modal__server-error {
   margin: 10px auto 0 auto;
+}
+
+@media screen and (max-width: 320px) {
+  .modal {
+    align-items: flex-start;
+  }
+
+  .modal__container {
+    max-width: 320px;
+    top: 0;
+    margin-top: 50px;
+  }
+
+  .modal__form {
+    padding: 16px;
+  }
+
+  .modal__form-input {
+    max-width: 288px;
+  }
+
+  .modal__button-close_add {
+    right: 16px;
+    top: -45px;
+  }
+
+  .modal-register-success {
+    width: 320px;
+  }
+
+  .modal__button-save {
+    box-sizing: border-box;
+    width: 288px;
+    padding: 16px;
+  }
+
+  .modal__form-title {
+    margin-left: 16px;
+  }
 }

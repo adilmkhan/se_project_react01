@@ -249,6 +249,7 @@ function App() {
               isLoggedIn={isLoggedIn}
               currentUser={currentUser}
               setIsLoggedIn={setIsLoggedIn}
+              isModalOpen={activeModal !== ""}
             />
             {isAuthChecking ? (
               <div>Loading...</div>
