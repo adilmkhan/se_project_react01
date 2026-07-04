@@ -19,6 +19,7 @@ function SavedNewsCard({ article, onRemoveItem }) {
           type="button"
           className="news-card__delete-btn"
         ></button>
+        <button type="button" className="news-card__summary-btn"></button>
         <h2 className="saved-news-card__image-description">
           {article.keyword}
         </h2>

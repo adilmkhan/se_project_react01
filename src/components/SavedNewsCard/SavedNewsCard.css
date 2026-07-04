@@ -45,6 +45,26 @@
   padding: 0;
 }
 
+.news-card__summary-btn {
+  background-image: url(../../assets/sparkles.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  background-color: transparent;
+  top: 290px;
+  right: 24px;
+  height: 35px;
+  width: 35px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.news-card__summary-btn:hover {
+  background-image: url(../../assets/sparkles_hover.svg);
+}
+
 .news-card__delete-btn:hover {
   background-image: url(../../assets/delete_hover.svg);
 }
@@ -155,6 +175,10 @@
     right: 8px;
   }
 
+  .news-card__summary-btn {
+    top: 160px;
+    right: 8px;
+  }
   .saved-news-card__image-description {
     top: 8px;
     left: 8px;
@@ -176,6 +200,11 @@
   .saved-news-card__image {
     width: 288px;
     height: 196px;
+  }
+
+  .news-card__summary-btn {
+    top: 210px;
+    right: 8px;
   }
   .saved-news-card__title {
     margin-top: 10px;
