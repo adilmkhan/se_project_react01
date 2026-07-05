@@ -17,6 +17,7 @@ import {
   addArticle,
   deleteCard,
   getCurrentUser,
+  getSummary,
 } from "../../utils/api";
 import Saved from "../../components/Saved/Saved";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
@@ -25,6 +26,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegisterSuccessModal from "../RegisterSuccessModal/RegisterSuccessModal";
+import SummaryModal from "../SummaryModal/SummaryModal";
 import * as auth from "../../utils/auth";
 
 const baseUrl = import.meta.env.PROD
@@ -35,6 +37,8 @@ function App() {
   const [newsData, setNewsData] = useState([]);
 
   const [savedArticles, setSavedArticles] = useState([]);
+
+  const [selectedArticle, setSelectedArticle] = useState({});
 
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -70,6 +74,21 @@ function App() {
 
   const handleLoginClick = () => {
     setActiveModal("signin");
+  };
+
+  const handleSummaryRequest = (article) => {
+    //TODO setActiveModal, summary API call
+    const jwt = getToken();
+
+    getSummary({ description: article.description }, baseUrl, jwt)
+      .then((res) => {
+        setSelectedArticle({ ...article, summary: res.summary });
+        setActiveModal("summarymodal");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    setSelectedArticle(article);
   };
 
   const handleNewsRequest = (searchFormData) => {
@@ -284,6 +303,7 @@ function App() {
                       <Saved
                         onRemoveItem={onRemoveItem}
                         savedArticles={savedArticles}
+                        summary={handleSummaryRequest}
                       />
                     </ProtectedRoute>
                   }
@@ -319,6 +339,11 @@ function App() {
             isOpen={activeModal === "registersuccess"}
             handleLoginClick={handleLoginClick}
             handleCloseClick={closeActiveModal}
+          />
+          <SummaryModal
+            isOpen={activeModal === "summarymodal"}
+            handleCloseClick={closeActiveModal}
+            article={selectedArticle}
           />
         </div>
       </>

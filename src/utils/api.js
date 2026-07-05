@@ -62,3 +62,22 @@ export const getCurrentUser = (baseUrl, jwt) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
 };
+
+export const getSummary = ({ description }, baseUrl, jwt) => {
+  return fetch(`${baseUrl}/summary`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
+    },
+    body: JSON.stringify({
+      description,
+    }),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  });
+};

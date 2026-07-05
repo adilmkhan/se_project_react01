@@ -3,7 +3,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import { useContext } from "react";
 
-function Saved({ savedArticles, onRemoveItem }) {
+function Saved({ savedArticles, onRemoveItem, summary }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -52,6 +52,7 @@ function Saved({ savedArticles, onRemoveItem }) {
                     onRemoveItem={onRemoveItem}
                     key={article._id}
                     article={article}
+                    summary={summary}
                   />
                 );
               })}
