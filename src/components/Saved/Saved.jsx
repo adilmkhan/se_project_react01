@@ -52,7 +52,7 @@ function Saved({ savedArticles, onRemoveItem, summary }) {
                     onRemoveItem={onRemoveItem}
                     key={article._id}
                     article={article}
-                    summary={summary}
+                    onSummary={summary}
                   />
                 );
               })}

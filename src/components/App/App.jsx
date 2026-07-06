@@ -38,7 +38,14 @@ function App() {
 
   const [savedArticles, setSavedArticles] = useState([]);
 
-  const [selectedArticle, setSelectedArticle] = useState({});
+  const [selectedArticle, setSelectedArticle] = useState({
+    // TODO: remove test data once done testing
+    id: 2,
+    title: "Test",
+    description: "This is a test description",
+    summary:
+      "Test summary for the article trying to ensure here that it is not too long but aslo does not spill over.",
+  });
 
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -48,7 +55,7 @@ function App() {
 
   const [newsIsLoading, setNewsIsLoading] = useState(false);
 
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("summarymodal");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -88,7 +95,6 @@ function App() {
       .catch((error) => {
         console.error(error);
       });
-    setSelectedArticle(article);
   };
 
   const handleNewsRequest = (searchFormData) => {
