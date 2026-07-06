@@ -11,7 +11,7 @@ function SummaryModal({ isOpen, handleCloseClick, article }) {
           aria-label="Close modal"
         ></button>
         <h2 className="modal__form-title modal__regiser-success-title">
-          {article.title} Summary
+          {article.keyword} Summary
         </h2>
         <p className="modal__summary-text">{article.summary}</p>
       </div>
