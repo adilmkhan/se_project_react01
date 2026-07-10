@@ -38,15 +38,7 @@ function App() {
 
   const [savedArticles, setSavedArticles] = useState([]);
 
-  const [selectedArticle, setSelectedArticle] = useState({
-    // TODO: remove test data once done testing
-    id: 2,
-    title: "Something just long enough to be the title",
-    keyword: "Test_1",
-    description: "This is a test description",
-    summary:
-      "Test summary for the article trying to ensure here that it is not too long but aslo does not spill over.",
-  });
+  const [selectedArticle, setSelectedArticle] = useState({});
 
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -56,7 +48,7 @@ function App() {
 
   const [newsIsLoading, setNewsIsLoading] = useState(false);
 
-  const [activeModal, setActiveModal] = useState("summarymodal");
+  const [activeModal, setActiveModal] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

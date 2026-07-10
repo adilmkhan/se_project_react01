@@ -65,6 +65,34 @@
   background-image: url(../../assets/sparkles_hover.svg);
 }
 
+.news-card__summary-btn::after {
+  content: "Summarize";
+  position: absolute;
+  right: 50px; /* Position to the left of the button */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(245, 246, 247, 1);
+  color: rgba(0, 0, 0, 1);
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.news-card__summary-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
 .news-card__delete-btn:hover {
   background-image: url(../../assets/delete_hover.svg);
 }
@@ -188,6 +216,11 @@
   .news-card__delete-btn::after {
     right: 0px;
     top: 150%;
+    padding: 8px 15px;
+  }
+  .news-card__summary-btn::after {
+    right: 0px;
+    top: -100%;
     padding: 8px 15px;
   }
 }
