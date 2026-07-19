@@ -1,7 +1,7 @@
 import "./SavedNewsCard.css";
 import defaultImage from "../../assets/placeholder_image.avif";
 
-function SavedNewsCard({ article, onRemoveItem, onSummary }) {
+function SavedNewsCard({ article, onRemoveItem, onSummary, scoreAvailable }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -24,6 +24,9 @@ function SavedNewsCard({ article, onRemoveItem, onSummary }) {
           type="button"
           className="news-card__summary-btn"
         ></button>
+        {scoreAvailable ? (
+          <button className="news-card__score-btn">87</button>
+        ) : null}
         <h2 className="saved-news-card__image-description">
           {article.keyword}
         </h2>

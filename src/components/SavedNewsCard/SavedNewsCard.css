@@ -65,6 +65,19 @@
   background-image: url(../../assets/sparkles_hover.svg);
 }
 
+.news-card__score-btn {
+  font-family: "Roboto", sans-serif;
+  border-radius: 100px;
+  font-size: 16px;
+  padding: 8px;
+  background-color: rgba(217, 131, 36, 1);
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 290px;
+  left: 140px;
+}
+
 .news-card__summary-btn::after {
   content: "Summarize";
   position: absolute;
@@ -207,6 +220,11 @@
     top: 160px;
     right: 8px;
   }
+
+  .news-card__score-btn {
+    top: 160px;
+    right: 60px;
+  }
   .saved-news-card__image-description {
     top: 8px;
     left: 8px;
@@ -238,6 +256,11 @@
   .news-card__summary-btn {
     top: 210px;
     right: 8px;
+  }
+
+  .news-card__score-btn {
+    top: 210px;
+    right: 60px;
   }
   .saved-news-card__title {
     margin-top: 10px;

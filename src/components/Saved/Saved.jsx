@@ -3,7 +3,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import { useContext } from "react";
 
-function Saved({ savedArticles, onRemoveItem, summary }) {
+function Saved({ savedArticles, onRemoveItem, summary, scoreAvailable }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -34,6 +34,7 @@ function Saved({ savedArticles, onRemoveItem, summary }) {
             )}
           </span>
         </p>
+        <button className="saved__info-score-btn">Scores</button>
       </section>
       <section className="main__results-section">
         {savedArticles.filter((item) => {
@@ -53,6 +54,7 @@ function Saved({ savedArticles, onRemoveItem, summary }) {
                     key={article._id}
                     article={article}
                     onSummary={summary}
+                    scoreAvailable={scoreAvailable}
                   />
                 );
               })}

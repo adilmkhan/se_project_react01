@@ -52,6 +52,10 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [articleScore, setArticleScore] = useState({});
+
+  const [scoreAvailable, setScoreAvailable] = useState(false);
+
   const [isAuthChecking, setIsAuthChecking] = useState(() =>
     Boolean(getToken()),
   );
@@ -75,6 +79,9 @@ function App() {
   const handleLoginClick = () => {
     setActiveModal("signin");
   };
+
+  //TODO: create score request handler:
+  const handleScoreRequest = (articles) => {};
 
   const handleSummaryRequest = (article) => {
     //TODO setActiveModal, summary API call
@@ -303,6 +310,7 @@ function App() {
                         onRemoveItem={onRemoveItem}
                         savedArticles={savedArticles}
                         summary={handleSummaryRequest}
+                        scoreAvailable={scoreAvailable}
                       />
                     </ProtectedRoute>
                   }
