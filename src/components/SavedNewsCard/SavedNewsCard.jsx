@@ -1,7 +1,14 @@
 import "./SavedNewsCard.css";
 import defaultImage from "../../assets/placeholder_image.avif";
 
-function SavedNewsCard({ article, onRemoveItem, onSummary, scoreAvailable }) {
+function SavedNewsCard({
+  article,
+  onRemoveItem,
+  onSummary,
+  scoreAvailable,
+  scores,
+  key,
+}) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -10,7 +17,11 @@ function SavedNewsCard({ article, onRemoveItem, onSummary, scoreAvailable }) {
       day: "numeric",
     });
   };
-
+  const articleScore = scores
+    .filter((item) => item.id === key)
+    .map((element) => {
+      return element.score;
+    })[0];
   return (
     <li className="saved-news-card">
       <div className="news-card__image-container">
@@ -25,7 +36,7 @@ function SavedNewsCard({ article, onRemoveItem, onSummary, scoreAvailable }) {
           className="news-card__summary-btn"
         ></button>
         {scoreAvailable ? (
-          <button className="news-card__score-btn">87</button>
+          <button className="news-card__score-btn">{articleScore} || 87</button>
         ) : null}
         <h2 className="saved-news-card__image-description">
           {article.keyword}

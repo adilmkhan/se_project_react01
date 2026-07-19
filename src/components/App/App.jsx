@@ -18,6 +18,7 @@ import {
   deleteCard,
   getCurrentUser,
   getSummary,
+  getScore,
 } from "../../utils/api";
 import Saved from "../../components/Saved/Saved";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
@@ -81,7 +82,18 @@ function App() {
   };
 
   //TODO: create score request handler:
-  const handleScoreRequest = (articles) => {};
+  const handleScoreRequest = (articles) => {
+    const jwt = getToken();
+
+    getScore(articles, baseUrl, jwt)
+      .then((data) => {
+        setArticleScore((item) => [...item, data]);
+        setScoreAvailable(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const handleSummaryRequest = (article) => {
     //TODO setActiveModal, summary API call
@@ -310,7 +322,9 @@ function App() {
                         onRemoveItem={onRemoveItem}
                         savedArticles={savedArticles}
                         summary={handleSummaryRequest}
+                        score={handleScoreRequest}
                         scoreAvailable={scoreAvailable}
+                        articleScore={articleScore}
                       />
                     </ProtectedRoute>
                   }

@@ -3,7 +3,14 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import { useContext } from "react";
 
-function Saved({ savedArticles, onRemoveItem, summary, scoreAvailable }) {
+function Saved({
+  savedArticles,
+  onRemoveItem,
+  summary,
+  score,
+  scoreAvailable,
+  articleScore,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -34,7 +41,12 @@ function Saved({ savedArticles, onRemoveItem, summary, scoreAvailable }) {
             )}
           </span>
         </p>
-        <button className="saved__info-score-btn">Scores</button>
+        <button
+          onClick={score(savedArticles)}
+          className="saved__info-score-btn"
+        >
+          Scores
+        </button>
       </section>
       <section className="main__results-section">
         {savedArticles.filter((item) => {
@@ -55,6 +67,7 @@ function Saved({ savedArticles, onRemoveItem, summary, scoreAvailable }) {
                     article={article}
                     onSummary={summary}
                     scoreAvailable={scoreAvailable}
+                    scores={articleScore}
                   />
                 );
               })}

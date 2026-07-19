@@ -81,3 +81,20 @@ export const getSummary = ({ description }, baseUrl, jwt) => {
     return Promise.reject(`Error: ${res.status}`);
   });
 };
+
+export const getScore = (articles, baseUrl, jwt) => {
+  return fetch(`${baseUrl}/score`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
+    },
+    body: JSON.stringify(articles),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  });
+};
