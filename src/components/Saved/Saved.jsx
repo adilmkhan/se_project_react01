@@ -42,7 +42,7 @@ function Saved({
           </span>
         </p>
         <button
-          onClick={score(savedArticles)}
+          onClick={() => score(savedArticles)}
           className="saved__info-score-btn"
         >
           Scores

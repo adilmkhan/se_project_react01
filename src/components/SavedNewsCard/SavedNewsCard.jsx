@@ -7,7 +7,6 @@ function SavedNewsCard({
   onSummary,
   scoreAvailable,
   scores,
-  key,
 }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -17,11 +16,8 @@ function SavedNewsCard({
       day: "numeric",
     });
   };
-  const articleScore = scores
-    .filter((item) => item.id === key)
-    .map((element) => {
-      return element.score;
-    })[0];
+  const articleScore = () =>
+    scores.find((item) => item.id === article._id)?.score;
   return (
     <li className="saved-news-card">
       <div className="news-card__image-container">
@@ -36,7 +32,9 @@ function SavedNewsCard({
           className="news-card__summary-btn"
         ></button>
         {scoreAvailable ? (
-          <button className="news-card__score-btn">{articleScore} || 87</button>
+          <button className="news-card__score-btn">
+            {articleScore()} || 87
+          </button>
         ) : null}
         <h2 className="saved-news-card__image-description">
           {article.keyword}
