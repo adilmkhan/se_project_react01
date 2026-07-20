@@ -113,4 +113,13 @@ const defaultNewsArticles = [
 
 const apiKey = "bef920c1e1084ca98a1a5f48ee72d852";
 
-export { defaultNewsArticles, apiKey };
+const articleScoresTest = [
+  { id: "69ffa8bce21a52bcb2cc58b3", score: 29 },
+  { id: "69ffa8c2e21a52bcb2cc58b5", score: 41 },
+  { id: "6a01126793dbd64e21920695", score: 58 },
+  { id: "6a4d9fd2a13edc46ee683618", score: 89 },
+  { id: "6a5a4914e445977680278ebb", score: 77 },
+  { id: "6a5a4918e445977680278ebd", score: 92 },
+];
+
+export { defaultNewsArticles, apiKey, articleScoresTest };

@@ -10,7 +10,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import { apiKey } from "../../utils/constants";
+import { apiKey, articleScoresTest } from "../../utils/constants";
 import { getNews } from "../../utils/newsApi";
 import {
   getCards,
@@ -52,10 +52,10 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //TODO: Testing remove articleScoresTest and replace with empty object {}
+  const [articleScore, setArticleScore] = useState(articleScoresTest);
 
-  const [articleScore, setArticleScore] = useState({});
-
-  const [scoreAvailable, setScoreAvailable] = useState(false);
+  const [scoreAvailable, setScoreAvailable] = useState(true);
 
   const [isAuthChecking, setIsAuthChecking] = useState(() =>
     Boolean(getToken()),
@@ -87,7 +87,7 @@ function App() {
 
     getScore(articles, baseUrl, jwt)
       .then((data) => {
-        setArticleScore((item) => [...item, data]);
+        setArticleScore(data);
         setScoreAvailable(true);
       })
       .catch((error) => {

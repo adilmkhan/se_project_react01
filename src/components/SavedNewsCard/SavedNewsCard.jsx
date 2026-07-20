@@ -33,7 +33,7 @@ function SavedNewsCard({
         ></button>
         {scoreAvailable ? (
           <button className="news-card__score-btn">
-            {articleScore()} || 87
+            {articleScore() || 87}
           </button>
         ) : null}
         <h2 className="saved-news-card__image-description">
