@@ -16,8 +16,7 @@ function SavedNewsCard({
       day: "numeric",
     });
   };
-  const articleScore = () =>
-    scores.find((item) => item.id === article._id)?.score;
+  const articleScore = scores.find((item) => item.id === article._id)?.score;
   return (
     <li className="saved-news-card">
       <div className="news-card__image-container">
@@ -33,7 +32,7 @@ function SavedNewsCard({
         ></button>
         {scoreAvailable ? (
           <button className="news-card__score-btn">
-            {articleScore() || 87}
+            {articleScore ?? "N/A"}
           </button>
         ) : null}
         <h2 className="saved-news-card__image-description">
