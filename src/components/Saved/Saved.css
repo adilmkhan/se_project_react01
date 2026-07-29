@@ -1,0 +1,85 @@
+.saved__info {
+  padding: 40px 104px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.saved__info-consumer {
+  width: 530px;
+  font-size: 40px;
+}
+
+.saved__info-header {
+  font-family: "Roboto", sans-serif;
+  color: rgba(26, 27, 34, 0.5);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.saved__info-consumer {
+  font-family: "Roboto Slab", sans-serif;
+  color: rgba(26, 27, 34, 1);
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.saved__info-keywords {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.saved__info-karticles {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.main__no-saved-articles {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.saved__info-score-btn {
+  font-family: "Roboto", sans-serif;
+  border-radius: 100px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  background-color: rgba(217, 131, 36, 1);
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.saved__info-score-btn:hover {
+  background-color: rgba(186, 108, 24, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .saved__info {
+    padding: 24px 40px;
+  }
+
+  .saved__info-header {
+    font-size: 14px;
+  }
+
+  .saved__info-consumer {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .saved__info {
+    padding: 8px 16px;
+  }
+  .saved__info-consumer {
+    max-width: 288px;
+  }
+  .saved__info-keywords {
+    max-width: 288px;
+  }
+}

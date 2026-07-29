@@ -1,0 +1,249 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    opacity 0.5s ease,
+    visibility 0s linear 0.5s;
+  visibility: hidden;
+  z-index: 20;
+}
+
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.modal__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  max-width: 430px;
+  width: 100%;
+  position: relative;
+  border-radius: 8px;
+}
+
+.modal-register-success {
+  width: 430px;
+  height: 182px;
+}
+
+.modal__form-title {
+  margin: 28px auto 0 28px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.modal__regiser-success-title {
+  display: inline-block;
+  max-width: 315px;
+  padding: 0;
+  margin-top: 43px;
+}
+
+.modal__button-close_add {
+  background-image: url(../../assets/close.svg);
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: -40px;
+  right: -40px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: unset;
+  cursor: pointer;
+  transition: background-image 1s linear;
+}
+
+.modal__form {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__form-label {
+  margin: 24px 0 0;
+  color: rgba(47, 113, 229, 1);
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+}
+
+.modal__form-label:first-child {
+  margin-top: 0;
+}
+.modal__form-input {
+  max-width: 630px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 8px 0 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  transition: opacity 1s linear;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__form-input:hover {
+  border-color: rgba(33, 33, 33, 1);
+}
+
+.modal__form-input::placeholder {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: rgba(33, 33, 33, 0.3);
+}
+
+.modal__button-save {
+  background-color: rgba(47, 113, 229, 1);
+  border-radius: 100px;
+  padding: 20px 147.5px;
+  color: rgba(255, 255, 255, 1);
+  line-height: 100%;
+  margin: 32px auto 16px auto;
+  cursor: pointer;
+  border: none;
+  transition: opacity 1s linear;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.modal__button-save:hover {
+  opacity: 80%;
+}
+
+.modal__button-cancel {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid black;
+  color: rgba(33, 33, 33, 1);
+  text-align: center;
+  padding: 18px 20px;
+  /* transition: none; */
+}
+
+.modal__button-cancel:hover {
+  background-color: rgba(33, 33, 33, 1);
+  color: rgba(255, 255, 255, 1);
+  opacity: 100%;
+}
+
+.modal__or {
+  margin: 0 auto;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.modal__or-signup {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: rgba(47, 113, 229, 1);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.modal__regiser-success-btn {
+  padding: 0;
+  margin: 14px auto 0 28px;
+}
+
+.button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input-error {
+  border: 2px solid #ff6b6b;
+  background-color: #fff5f5;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.modal__server-error {
+  margin: 10px auto 0 auto;
+}
+
+.modal__summary-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 16px 28px;
+  line-height: 22px;
+  color: rgba(26, 27, 34, 1);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 320px) {
+  .modal {
+    align-items: flex-start;
+  }
+
+  .modal__container {
+    max-width: 320px;
+    top: 0;
+    margin-top: 50px;
+  }
+
+  .modal__form {
+    padding: 16px;
+  }
+
+  .modal__form-input {
+    max-width: 288px;
+  }
+
+  .modal__button-close_add {
+    right: 16px;
+    top: -45px;
+  }
+
+  .modal-register-success {
+    width: 320px;
+  }
+
+  .modal__button-save {
+    box-sizing: border-box;
+    width: 288px;
+    padding: 16px;
+  }
+
+  .modal__form-title {
+    margin-left: 16px;
+  }
+}

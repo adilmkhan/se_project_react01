@@ -1,0 +1,226 @@
+.main {
+  /* position: absolute; */
+}
+
+.no-results {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-results__image {
+  width: 82.5px;
+  height: 82.5px;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.no-results__title {
+  width: 356px;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  text-align: center;
+  color: rgba(26, 27, 34, 1);
+}
+
+.no-results__description {
+  width: 356px;
+  height: 48px;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(108, 112, 122, 1);
+  text-align: center;
+}
+
+/* Search Section - Hero area with background */
+.main__search-section {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/search-bg.jpg") center/cover;
+  height: 576px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -140px;
+  padding-top: 140px;
+  position: relative;
+  z-index: 1;
+}
+
+.main__search-container {
+  max-width: 608px;
+  width: 100%;
+  text-align: left;
+}
+
+.main__title {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  color: #ffffff;
+  margin: 0 0 32px;
+}
+
+.main__subtitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  /* margin-bottom: 88px; */
+  color: #ffffff;
+  margin: 0 0 88px;
+}
+
+/* Results Section */
+.main__results-section {
+  padding: 80px 104px;
+  background-color: rgba(245, 246, 247, 1);
+}
+
+.main__results-section-title {
+  margin-top: 0;
+  margin-bottom: 64px;
+  padding: 0;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.main__results-container {
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  /* display: contents; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-auto-rows: 576px;
+  gap: 16px;
+  justify-content: center;
+}
+
+.showmore-btn {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(26, 27, 34, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  padding: 20px 98px 20px 98px;
+  border-radius: 80px;
+  margin: 64px auto 0;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.5s;
+}
+
+.showmore-btn:hover {
+  background-color: rgba(232, 232, 232, 1);
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  padding: 80px 216px 80px 104px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .main__search-container {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+  }
+
+  .main__results-section {
+    padding: 40px 24px;
+  }
+
+  .main__title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 0 auto 16px;
+    width: 386px;
+  }
+
+  .main__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0 auto 48px;
+    width: 386px;
+  }
+
+  .main__search-section {
+    /*top right-and-left bottom*/
+    padding: 83px 16px 16px;
+    height: 400px;
+    box-sizing: border-box;
+    margin-top: -83px;
+  }
+
+  .main__results-container {
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    grid-auto-rows: 420px;
+    gap: 8px;
+  }
+
+  .about {
+    padding: 61px 40px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .main__search-section {
+    height: 536px;
+    align-items: normal;
+  }
+
+  .main__title {
+    max-width: 285px;
+    margin: 30px auto 16px;
+  }
+
+  .main__subtitle {
+    font-size: 18px;
+    max-width: 288px;
+    margin: 0 auto 122px;
+  }
+
+  .main__search-container {
+    max-width: 100%;
+  }
+
+  .main__results-section-title {
+    font-size: 30px;
+  }
+  .main__results-section {
+    padding: 32px 16px;
+  }
+  .main__results-container {
+    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+    grid-auto-rows: 440px;
+    gap: 10px;
+  }
+
+  .showmore-btn {
+    width: 288px;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+  }
+}

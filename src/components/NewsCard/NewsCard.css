@@ -1,0 +1,204 @@
+.news-card {
+  position: relative;
+  width: 400px;
+  height: 576px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 12px;
+  position: relative;
+}
+
+.news-card__image {
+  width: 400px;
+  height: 272px;
+  object-fit: cover;
+  /* display: block; */
+  border-radius: 12px;
+  /* cursor: pointer; */
+}
+
+.news-card__save-btn {
+  background-image: url(../../assets/save-btn-inactive.svg);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  margin: 0;
+  padding: 0;
+  transition: background-image 0.5s linear;
+  cursor: pointer;
+}
+
+.news-card__saved-btn-saved {
+  background-image: url(../../assets/button_saved.svg);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  margin: 0;
+  padding: 0;
+  transition: background-image 0.5s linear;
+  cursor: pointer;
+}
+
+.news-card__save-btn:hover {
+  background-image: url(../../assets/save-btn-hover.svg);
+}
+
+.news-card__inactive-save-btn {
+  background-image: url(../../assets/save-btn-inactive.svg);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  margin: 0;
+  padding: 0;
+  transition: background-image 0.5s linear;
+  cursor: pointer;
+}
+
+.news-card__inactive-save-btn:hover {
+  background-image: url(../../assets/save-btn-hover.svg);
+}
+
+.news-card__inactive-save-btn::after {
+  content: "Sign in to save articles";
+  position: absolute;
+  right: 50px; /* Position to the left of the button */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.news-card__inactive-save-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.news-card__content {
+  padding: 24px 24px;
+  /* position: relative; */
+}
+
+.news-card__date {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.news-card__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: rgba(26, 27, 34, 1);
+  margin: 0;
+  line-height: 30px;
+  margin-top: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.news-card__description {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(26, 27, 34, 1);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.news-card__source {
+  font-family: Roboto Slab;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: rgba(182, 188, 191, 1);
+  position: absolute;
+  margin: 0;
+  bottom: 16px;
+}
+
+.news-card__url {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .news-card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .news-card__content {
+    padding: 16px;
+  }
+  .news-card__image {
+    width: 224px;
+    height: 150px;
+  }
+  .news-card__title {
+    font-size: 22px;
+    margin-top: 12px;
+  }
+
+  .news-card__save-btn {
+    top: 8px;
+    right: 8px;
+  }
+
+  .news-card__inactive-save-btn {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .news-card {
+    width: 288px;
+    height: 440px;
+  }
+
+  .news-card__image {
+    width: 288px;
+    height: 196px;
+  }
+
+  .news-card__title {
+    margin-top: 10px;
+    -webkit-line-clamp: 2;
+  }
+  .news-card__description {
+    margin: 14px auto 8px;
+    max-width: 256px;
+  }
+}
